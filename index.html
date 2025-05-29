@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>城安無障礙規劃實業社 - 專業輔具設備與無障礙空間規劃</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2c5f7c 0%, #34495e 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #f39c12;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-toggle:hover {
+            background: rgba(243, 156, 18, 0.3);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: rgba(243, 156, 18, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Add padding to body to account for fixed header */
+        body {
+            padding-top: 100px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(52, 73, 94, 0.8), rgba(52, 73, 94, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect width="1200" height="800" fill="%23f8f9fa"/><circle cx="200" cy="200" r="100" fill="%23e9ecef" opacity="0.5"/><circle cx="1000" cy="600" r="150" fill="%23dee2e6" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(243, 156, 18, 0.1) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(243, 156, 18, 0.3);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(243, 156, 18, 0.4);
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            border-radius: 2px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: #f39c12;
+        }
+
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: #f39c12;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .feature-card p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Trust Section */
+        .trust-section {
+            background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .trust-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .trust-badge:hover {
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #2c5f7c 0%, #34495e 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        /* About Section */
+        .about-section {
+            background: white;
+            padding: 5rem 0;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: start;
+            margin-top: 2rem;
+        }
+
+        .about-text h3 {
+            color: #2c5f7c;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        .about-text h3:first-child {
+            margin-top: 0;
+        }
+
+        .about-text p {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Branches Section */
+        .branches-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 5rem 0;
+        }
+
+        .branches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .branch-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid #f39c12;
+        }
+
+        .branch-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .branch-card h3 {
+            color: #2c5f7c;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            border-bottom: 2px solid #f39c12;
+            padding-bottom: 0.5rem;
+        }
+
+        .branch-info p {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .branch-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(243, 156, 18, 0.3);
+            flex: 1;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+
+        .contact-item h4 {
+            color: #f39c12;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            /* Mobile Navigation */
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: linear-gradient(135deg, #2c5f7c 0%, #34495e 100%);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 0;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+                z-index: 999;
+            }
+
+            nav ul.show {
+                left: 0;
+            }
+
+            nav ul li {
+                width: 90%;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+
+            nav ul li a {
+                display: block;
+                width: 100%;
+                padding: 1rem;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 10px;
+                backdrop-filter: blur(10px);
+                font-size: 1.2rem;
+            }
+
+            nav ul li a:hover {
+                background: rgba(243, 156, 18, 0.3);
+                transform: none;
+            }
+            
+            .header-content {
+                text-align: left;
+                justify-content: space-between;
+            }
+            
+            .trust-badges {
+                gap: 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .branches-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .branch-buttons {
+                flex-direction: column;
+            }
+
+            .contact-btn {
+                flex: none;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">城安無障礙規劃實業社</div>
+                <button class="menu-toggle" onclick="toggleMenu()">
+                    <span id="menu-icon">☰</span>
+                </button>
+                <nav>
+                    <ul id="nav-menu">
+                        <li><a href="#home" onclick="closeMenu()">首頁</a></li>
+                        <li><a href="#about" onclick="closeMenu()">公司簡介</a></li>
+                        <li><a href="#products" onclick="closeMenu()">產品服務</a></li>
+                        <li><a href="#branches" onclick="closeMenu()">分店資訊</a></li>
+                        <li><a href="#contact" onclick="closeMenu()">聯絡我們</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>讓生活更安全 讓愛更安心</h1>
+                <p>城安輔具專業團隊深耕輔具領域多年，提供專業輔具設備與無障礙空間規劃，讓您的家人在熟悉的環境中安全舒適地生活。</p>
+                <a href="#contact" class="cta-button">到府評估</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2 class="section-title">關於城安無障礙規劃實業社</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>我們的使命</h3>
+                    <p>城安無障礙規劃實業社致力於為每個家庭打造安全、舒適的生活環境。我們深信每個人都應該在熟悉的家中享受有尊嚴的生活，不因身體機能的改變而受限。</p>
+                    
+                    <h3>專業服務</h3>
+                    <p>我們擁有專業的輔具評估師和無障礙規劃師，提供個人化的評估與建議。從輔具選配到居家環境改善，我們提供全方位的解決方案。</p>
+                    
+                    <h3>雙北特約廠商</h3>
+                    <p>作為雙北地區特約廠商，我們提供優質的輔具產品與專業施工服務，所有產品均通過相關認證，並提供完整的售後服務與保固。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="products">
+        <div class="container">
+            <h2 class="section-title">我們的專業服務</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚿</div>
+                    <h3>社福馬桶與浴室設備</h3>
+                    <p>社福馬桶、壁掛沐浴椅、面盆更新、浴缸移除等專業浴室設備，打造安全舒適的盥洗環境。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>扶手安裝服務</h3>
+                    <p>走廊樓梯扶手、上掀扶手、L型扶手、浴室扶手等各式扶手安裝，提供全方位安全防護。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📐</div>
+                    <h3>移動斜坡板</h3>
+                    <p>專業移動斜坡板安裝，輕鬆克服門檻與高低差，讓行動更順暢便利。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚪</div>
+                    <h3>門檻與門片改善</h3>
+                    <p>門檻去除、百頁門、橫拉門安裝，改善居家動線，創造無障礙通行空間。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍⚕️</div>
+                    <h3>專業評估服務</h3>
+                    <p>由專業評估師進行到府評估，量身訂做最適合的輔具配置與環境改善建議。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>售後服務保障</h3>
+                    <p>提供專業安裝、使用教學、定期保養及維修服務，讓您使用無後顧之憂。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="branches-section" id="branches">
+        <div class="container">
+            <h2 class="section-title">分店資訊</h2>
+            <div class="branches-grid">
+                <div class="branch-card">
+                    <h3>總公司 - 新北三重店</h3>
+                    <div class="branch-info">
+                        <p><strong>📍 地址：</strong>新北市三重區成功路41巷29號1樓</p>
+                        <p><strong>📞 電話：</strong>0906-828-969</p>
+                        <p><strong>🕒 營業時間：</strong></p>
+                        <p>週一至週五：09:00-18:00</p>
+                        <p>週六至週日：接受電話諮詢，不施工</p>
+                        <div class="branch-buttons">
+                            <a href="tel:0906828969" class="contact-btn">📞 立即撥打</a>
+                            <a href="https://newrepat.sfaa.gov.tw/home/pavs/vendor/detail/4bc1e2b4925683da01928f33b742721d" target="_blank" class="contact-btn">🏛️ 政府登記</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="branch-card">
+                    <h3>萬華店 - 台北市</h3>
+                    <div class="branch-info">
+                        <p><strong>📍 地址：</strong>台北市萬華區漢口街2段56號6樓之2</p>
+                        <p><strong>📞 電話：</strong>0906-828-969</p>
+                        <p><strong>🕒 營業時間：</strong></p>
+                        <p>週一至週五：09:00-18:00</p>
+                        <p>週六至週日：接受電話諮詢，不施工</p>
+                        <div class="branch-buttons">
+                            <a href="tel:0906828969" class="contact-btn">📞 立即撥打</a>
+                            <a href="https://newrepat.sfaa.gov.tw/home/pavs/vendor/detail/4bc1e2b4925683da01928f18485b6b3c" target="_blank" class="contact-btn">🏛️ 政府登記</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="branch-card">
+                    <h3>大安店 - 台北市</h3>
+                    <div class="branch-info">
+                        <p><strong>📍 地址：</strong>台北市大安區仁愛路三段26號5樓</p>
+                        <p><strong>📞 電話：</strong>0906-828-969</p>
+                        <p><strong>🕒 營業時間：</strong></p>
+                        <p>週一至週五：09:00-18:00</p>
+                        <p>週六至週日：接受電話諮詢，不施工</p>
+                        <div class="branch-buttons">
+                            <a href="tel:0906828969" class="contact-btn">📞 立即撥打</a>
+                            <a href="https://newrepat.sfaa.gov.tw/home/pavs/vendor/detail/4bc1e2b4932907af01966193c90c0e46" target="_blank" class="contact-btn">🏛️ 政府登記</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="branch-card">
+                    <h3>板橋店 - 新北市</h3>
+                    <div class="branch-info">
+                        <p><strong>📍 地址：</strong>新北市板橋區三民路2段23號14樓</p>
+                        <p><strong>📞 電話：</strong>0906-828-969</p>
+                        <p><strong>🕒 營業時間：</strong></p>
+                        <p>週一至週五：09:00-18:00</p>
+                        <p>週六至週日：接受電話諮詢，不施工</p>
+                        <div class="branch-buttons">
+                            <a href="tel:0906828969" class="contact-btn">📞 立即撥打</a>
+                            <a href="https://newrepat.sfaa.gov.tw/home/pavs/vendor/detail/4bc1e2b4925683da0192935af3984d82" target="_blank" class="contact-btn">🏛️ 政府登記</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="branch-card">
+                    <h3>中和店 - 新北市</h3>
+                    <div class="branch-info">
+                        <p><strong>📍 地址：</strong>新北市中和區中原二街28號18樓</p>
+                        <p><strong>📞 電話：</strong>0906-828-969</p>
+                        <p><strong>🕒 營業時間：</strong></p>
+                        <p>週一至週五：09:00-18:00</p>
+                        <p>週六至週日：接受電話諮詢，不施工</p>
+                        <div class="branch-buttons">
+                            <a href="tel:0906828969" class="contact-btn">📞 立即撥打</a>
+                            <a href="https://newrepat.sfaa.gov.tw/home/pavs/vendor/detail/4bc1e2b4925683da01928f0f674a69a8" target="_blank" class="contact-btn">🏛️ 政府登記</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="branch-card">
+                    <h3>新店店 - 新北市</h3>
+                    <div class="branch-info">
+                        <p><strong>📍 地址：</strong>新北市新店區安興路127之3號1樓</p>
+                        <p><strong>📞 電話：</strong>0906-828-969</p>
+                        <p><strong>🕒 營業時間：</strong></p>
+                        <p>週一至週五：09:00-18:00</p>
+                        <p>週六至週日：接受電話諮詢，不施工</p>
+                        <div class="branch-buttons">
+                            <a href="tel:0906828969" class="contact-btn">📞 立即撥打</a>
+                            <a href="https://newrepat.sfaa.gov.tw/home/pavs/vendor/detail/4bc1e2b4925683da01928f1ddb8b6c52" target="_blank" class="contact-btn">🏛️ 政府登記</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="branch-card">
+                    <h3>新莊店 - 新北市</h3>
+                    <div class="branch-info">
+                        <p><strong>📍 地址：</strong>新北市新莊區富貴路492號6樓</p>
+                        <p><strong>📞 電話：</strong>0906-828-969</p>
+                        <p><strong>🕒 營業時間：</strong></p>
+                        <p>週一至週五：09:00-18:00</p>
+                        <p>週六至週日：接受電話諮詢，不施工</p>
+                        <div class="branch-buttons">
+                            <a href="tel:0906828969" class="contact-btn">📞 立即撥打</a>
+                            <a href="https://newrepat.sfaa.gov.tw/home/pavs/vendor/detail/4bc1e2b4932907af0196618fef720cb2" target="_blank" class="contact-btn">🏛️ 政府登記</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+       <section class="trust-section">
+        <div class="container">
+            <div class="trust-content">
+                <h2 class="section-title">值得信賴的專業團隊</h2>
+                <p style="font-size: 1.2rem; color: #555; margin-bottom: 2rem;">我們秉持著「以人為本」的服務理念，作為雙北地區特約廠商，協助無數家庭打造安全舒適的生活環境。專業的評估與貼心的服務，贏得客戶與醫療院所的一致信賴。</p>
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <h4>💕 雙北特約</h4>
+                        <p>政府認證廠商</p>
+                    </div>
+                    <div class="trust-badge">
+                        <h4>🏆 專業團隊</h4>
+                        <p>專業評估師服務</p>
+                    </div>
+                    <div class="trust-badge">
+                        <h4>🔎 官方FB</h4>
+                        <p><a href="https://www.facebook.com/profile.php?id=61559277592315&sk=about" target="_blank" style="color: #2c3e50; text-decoration: none;">追蹤我們</a></p>
+                    </div>
+                     <div class="trust-badge">
+                        <h4>🧑‍💻 官方LINE</h4>
+                        <p><a href="https://line.me/ti/p/SzjNVVDE9y" target="_blank" style="color: #2c3e50; text-decoration: none;">聯絡我們</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">聯絡我們</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">準備為家人打造更安全舒適的生活環境嗎？我們的專業團隊隨時為您服務。</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4>📞 聯絡電話</h4>
+                    <p><a href="tel:0906828969" style="color: white; text-decoration: none;">0906-828-969</a><br>週一至週五 09:00-18:00</p>
+                </div>
+                <div class="contact-item">
+                    <h4>💻 線上諮詢</h4>
+                    <p>專業評估師為您解答<br>到府評估服務</p>
+                </div>
+   <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            
+            navMenu.classList.toggle('show');
+            
+            // 切換漢堡選單圖示
+            if (navMenu.classList.contains('show')) {
+                menuIcon.innerHTML = '✕';
+            } else {
+                menuIcon.innerHTML = '☰';
+            }
+        }
+
+        function closeMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            
+            navMenu.classList.remove('show');
+            menuIcon.innerHTML = '☰';
+        }
+
+        // 點擊選單外的地方關閉選單
+        document.addEventListener('click', function(event) {
+            const navMenu = document.getElementById('nav-menu');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+                closeMenu();
+            }
+        });
+
+        // 視窗大小改變時關閉選單
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                closeMenu();
+            }
+        });
+    </script>
+</body>
+</html>
