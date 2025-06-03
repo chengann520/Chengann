@@ -14,8 +14,9 @@
         body {
             font-family: 'Georgia', serif;
             line-height: 1.6;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #5A4B7A;  /* 統一使用較溫和的深紫色 */
+            background: linear-gradient(135deg, #F8F9FA 0%, #FFFFFF 100%);
+            padding-top: 100px;
         }
 
         .container {
@@ -26,10 +27,10 @@
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #2c5f7c 0%, #34495e 100%);
+            background: linear-gradient(135deg, #5A4B7A 0%, #7B68B3 30%, #8FA8DB 70%, #B3C7E6 100%);  /* 統一的溫暖藍紫漸層 */
             color: white;
             padding: 1rem 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(90, 75, 122, 0.2);
             position: fixed;
             top: 0;
             left: 0;
@@ -45,11 +46,12 @@
         }
 
         .logo {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #f39c12;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
 
         /* Mobile Menu Toggle */
         .menu-toggle {
@@ -65,7 +67,7 @@
         }
 
         .menu-toggle:hover {
-            background: rgba(243, 156, 18, 0.3);
+            background: rgba(179, 199, 230, 0.3);
         }
 
         nav ul {
@@ -81,22 +83,29 @@
             transition: all 0.3s ease;
             padding: 0.5rem 1rem;
             border-radius: 5px;
+            cursor: pointer;
         }
 
-        nav a:hover {
-            background: rgba(243, 156, 18, 0.3);
+        nav a:hover, nav a.active {
+            background: rgba(179, 199, 230, 0.25);
             transform: translateY(-2px);
         }
 
-        /* Add padding to body to account for fixed header */
-        body {
-            padding-top: 100px;
+        /* Page content styling */
+        .page {
+            display: none;
+            min-height: calc(100vh - 200px);
+            padding: 2rem 0;
+        }
+
+        .page.active {
+            display: block;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(52, 73, 94, 0.8), rgba(52, 73, 94, 0.8)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect width="1200" height="800" fill="%23f8f9fa"/><circle cx="200" cy="200" r="100" fill="%23e9ecef" opacity="0.5"/><circle cx="1000" cy="600" r="150" fill="%23dee2e6" opacity="0.3"/></svg>');
+            background: linear-gradient(135deg, rgba(90, 75, 122, 0.9) 0%, rgba(123, 104, 179, 0.8) 30%, rgba(143, 168, 219, 0.8) 70%, rgba(179, 199, 230, 0.8) 100%), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect width="1200" height="800" fill="%23F8F9FA"/><circle cx="200" cy="200" r="100" fill="%238FA8DB" opacity="0.3"/><circle cx="1000" cy="600" r="150" fill="%237B68B3" opacity="0.3"/><circle cx="600" cy="400" r="120" fill="%23B3C7E6" opacity="0.3"/></svg>');
             background-size: cover;
             background-position: center;
             color: white;
@@ -112,7 +121,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(243, 156, 18, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle at 30% 50%, rgba(179, 199, 230, 0.15) 0%, transparent 70%);
         }
 
         .hero-content {
@@ -138,7 +147,7 @@
 
         .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            background: linear-gradient(135deg, #7B68B3 0%, #8FA8DB 50%, #B3C7E6 100%);  /* 統一的溫暖漸層 */
             color: white;
             padding: 1rem 2.5rem;
             text-decoration: none;
@@ -146,26 +155,28 @@
             font-size: 1.2rem;
             font-weight: bold;
             transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(243, 156, 18, 0.3);
+            box-shadow: 0 6px 20px rgba(123, 104, 179, 0.3);
             animation: fadeInUp 1s ease-out 0.6s both;
+            cursor: pointer;
+            border: none;
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(243, 156, 18, 0.4);
-            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+            box-shadow: 0 8px 25px rgba(143, 168, 219, 0.4);
+            background: linear-gradient(135deg, #B3C7E6 0%, #8FA8DB 50%, #7B68B3 100%);
         }
 
         /* Features Section */
         .features {
             padding: 5rem 0;
-            background: white;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            color: #2c3e50;
+            color: #5A4B7A;
             margin-bottom: 3rem;
             position: relative;
         }
@@ -178,7 +189,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            background: linear-gradient(135deg, #7B68B3 0%, #8FA8DB 50%, #B3C7E6 100%);
             border-radius: 2px;
         }
 
@@ -189,43 +200,46 @@
             margin-top: 4rem;
         }
 
+        /* 統一產品服務卡片樣式 */
         .feature-card {
             text-align: center;
             padding: 2.5rem;
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
-            border: 2px solid transparent;
+            border: 2px solid #8FA8DB;  /* 統一使用溫暖藍色 */
         }
 
         .feature-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            border-color: #f39c12;
+            background: linear-gradient(135deg, #FFFFFF 0%, rgba(143, 168, 219, 0.1) 100%);
+            border-color: #7B68B3;
         }
 
         .feature-icon {
             font-size: 4rem;
             margin-bottom: 1.5rem;
-            color: #f39c12;
+            color: #8FA8DB;  /* 統一圖示顏色 */
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
         .feature-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: #2c3e50;
+            color: #5A4B7A;
         }
 
         .feature-card p {
-            color: #555;
+            color: #5A4B7A;
             line-height: 1.8;
+            opacity: 0.8;
         }
 
         /* Trust Section */
         .trust-section {
-            background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+            background: linear-gradient(135deg, #F8F9FA 0%, rgba(143, 168, 219, 0.1) 50%, rgba(179, 199, 230, 0.1) 100%);
             padding: 4rem 0;
             text-align: center;
         }
@@ -249,23 +263,16 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
+            border-top: 3px solid #8FA8DB;  /* 統一使用溫暖藍色 */
         }
 
         .trust-badge:hover {
             transform: scale(1.05);
         }
 
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(135deg, #2c5f7c 0%, #34495e 100%);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-
         /* About Section */
         .about-section {
-            background: white;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
             padding: 5rem 0;
         }
 
@@ -278,24 +285,25 @@
         }
 
         .about-text h3 {
-            color: #2c5f7c;
             margin-bottom: 1rem;
             margin-top: 2rem;
+            color: #7B68B3;  /* 統一標題顏色 */
         }
 
-        .about-text h3:first-child {
+        .about-text h3:nth-of-type(1) {
             margin-top: 0;
         }
 
         .about-text p {
             line-height: 1.8;
-            color: #555;
+            color: #5A4B7A;
+            opacity: 0.8;
             margin-bottom: 1.5rem;
         }
 
         /* Branches Section */
         .branches-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: linear-gradient(135deg, rgba(179, 199, 230, 0.1) 0%, rgba(143, 168, 219, 0.1) 50%, #F8F9FA 100%);
             padding: 5rem 0;
         }
 
@@ -306,32 +314,35 @@
             margin-top: 3rem;
         }
 
+        /* 統一分店卡片樣式 */
         .branch-card {
             background: white;
             padding: 2.5rem;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
-            border-top: 4px solid #f39c12;
+            border-top: 4px solid #8FA8DB;  /* 統一使用溫暖藍色 */
         }
 
         .branch-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-top-color: #7B68B3;  /* hover時變為深一點的紫色 */
         }
 
         .branch-card h3 {
-            color: #2c5f7c;
+            color: #5A4B7A;
             margin-bottom: 1.5rem;
             font-size: 1.4rem;
-            border-bottom: 2px solid #f39c12;
             padding-bottom: 0.5rem;
+            border-bottom: 2px solid #8FA8DB;  /* 統一底線顏色 */
         }
 
         .branch-info p {
             margin-bottom: 0.8rem;
             line-height: 1.6;
-            color: #555;
+            color: #5A4B7A;
+            opacity: 0.8;
         }
 
         .branch-buttons {
@@ -342,7 +353,7 @@
         }
 
         .contact-btn {
-            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            background: linear-gradient(135deg, #8FA8DB 0%, rgba(143, 168, 219, 0.8) 100%);  /* 統一按鈕樣式 */
             color: white;
             padding: 0.8rem 1.5rem;
             text-decoration: none;
@@ -350,16 +361,24 @@
             font-size: 0.9rem;
             font-weight: bold;
             transition: all 0.3s ease;
-            box-shadow: 0 3px 10px rgba(243, 156, 18, 0.3);
             flex: 1;
             text-align: center;
             min-width: 120px;
+            box-shadow: 0 3px 10px rgba(143, 168, 219, 0.3);
         }
 
         .contact-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
-            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+            box-shadow: 0 5px 15px rgba(123, 104, 179, 0.4);
+            background: linear-gradient(135deg, #7B68B3 0%, rgba(123, 104, 179, 0.9) 100%);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #5A4B7A 0%, #7B68B3 30%, #8FA8DB 70%, #B3C7E6 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
         }
 
         .contact-info {
@@ -375,6 +394,7 @@
             border-radius: 10px;
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
+            border-left: 4px solid #B3C7E6;  /* 統一邊框顏色 */
         }
 
         .contact-item:hover {
@@ -383,14 +403,14 @@
         }
 
         .contact-item h4 {
-            color: #f39c12;
+            color: #F8F9FA;
             margin-bottom: 0.5rem;
             font-size: 1.2rem;
         }
 
         /* Footer */
         footer {
-            background: #1a252f;
+            background: linear-gradient(135deg, #5A4B7A 0%, rgba(90, 75, 122, 0.9) 100%);
             color: white;
             text-align: center;
             padding: 2rem 0;
@@ -438,7 +458,7 @@
                 left: -100%;
                 width: 100%;
                 height: calc(100vh - 80px);
-                background: linear-gradient(135deg, #2c5f7c 0%, #34495e 100%);
+                background: linear-gradient(135deg, #5A4B7A 0%, #7B68B3 30%, #8FA8DB 70%, #B3C7E6 100%);
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: center;
@@ -469,7 +489,7 @@
             }
 
             nav ul li a:hover {
-                background: rgba(243, 156, 18, 0.3);
+                background: rgba(179, 199, 230, 0.25);
                 transform: none;
             }
             
@@ -506,60 +526,375 @@
         }
     </style>
 </head>
+ <script>
+// 頁面切換功能
+function showPage(pageId) {
+    // 隱藏所有頁面
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => {
+        page.classList.remove('active');
+    });
+    
+    // 顯示指定頁面
+    const targetPage = document.getElementById(pageId);
+    if (targetPage) {
+        targetPage.classList.add('active');
+    }
+    
+    // 更新導航狀態
+    updateNavigation(pageId);
+    
+    // 關閉移動端菜單
+    closeMobileMenu();
+    
+    // 滾動到頂部
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// 更新導航狀態
+function updateNavigation(activePageId) {
+    // 移除所有導航項目的active狀態
+    const navItems = document.querySelectorAll('nav a');
+    navItems.forEach(item => {
+        item.classList.remove('active');
+    });
+    
+    // 為對應的導航項目添加active狀態
+    const activeNavItem = document.getElementById(`nav-${activePageId}`);
+    if (activeNavItem) {
+        activeNavItem.classList.add('active');
+    }
+}
+
+// 移動端菜單切換
+function toggleMenu() {
+    const navMenu = document.getElementById('nav-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    
+    if (navMenu.classList.contains('show')) {
+        navMenu.classList.remove('show');
+        menuIcon.textContent = '☰';
+    } else {
+        navMenu.classList.add('show');
+        menuIcon.textContent = '✕';
+    }
+}
+
+// 關閉移動端菜單
+function closeMobileMenu() {
+    const navMenu = document.getElementById('nav-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    
+    navMenu.classList.remove('show');
+    menuIcon.textContent = '☰';
+}
+
+// 平滑滾動到指定元素
+function scrollToElement(elementId) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
+// 處理外部鏈接點擊
+function handleExternalLink(url) {
+    window.open(url, '_blank', 'noopener,noreferrer');
+}
+
+// 處理電話撥打
+function makeCall(phoneNumber) {
+    window.location.href = `tel:${phoneNumber}`;
+}
+
+// 頁面載入完成後的初始化
+document.addEventListener('DOMContentLoaded', function() {
+    // 確保首頁為默認顯示頁面
+    showPage('home');
+    
+    // 為所有CTA按鈕添加點擊事件
+    const ctaButtons = document.querySelectorAll('.cta-button');
+    ctaButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            showPage('contact');
+        });
+    });
+    
+    // 為移動端菜單項目添加點擊關閉功能
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // 延遲關閉菜單，確保頁面切換動畫完成
+            setTimeout(() => {
+                closeMobileMenu();
+            }, 100);
+        });
+    });
+    
+    // 點擊頁面其他地方關閉移動端菜單
+    document.addEventListener('click', function(event) {
+        const navMenu = document.getElementById('nav-menu');
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+        
+        // 如果點擊的不是菜單相關元素，則關閉菜單
+        if (!nav.contains(event.target) && !menuToggle.contains(event.target)) {
+            closeMobileMenu();
+        }
+    });
+    
+    // 監聽窗口大小變化
+    window.addEventListener('resize', function() {
+        // 如果窗口變大，關閉移動端菜單
+        if (window.innerWidth > 768) {
+            closeMobileMenu();
+        }
+    });
+    
+    // 添加滾動效果
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // 向下滾動時添加陰影效果
+        if (scrollTop > 50) {
+            header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
+        } else {
+            header.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
+        }
+        
+        lastScrollTop = scrollTop;
+    });
+});
+
+// 鍵盤導航支持
+document.addEventListener('keydown', function(event) {
+    // ESC鍵關閉移動端菜單
+    if (event.key === 'Escape') {
+        closeMobileMenu();
+    }
+    
+    // Enter鍵激活聚焦的按鈕
+    if (event.key === 'Enter' && event.target.tagName === 'BUTTON') {
+        event.target.click();
+    }
+});
+
+// 表單驗證和提交處理（如果需要的話）
+function validateForm(formElement) {
+    const inputs = formElement.querySelectorAll('input[required], textarea[required]');
+    let isValid = true;
+    
+    inputs.forEach(input => {
+        if (!input.value.trim()) {
+            input.style.borderColor = '#e74c3c';
+            isValid = false;
+        } else {
+            input.style.borderColor = '';
+        }
+    });
+    
+    return isValid;
+}
+
+// 動畫觀察器（用於頁面滾動動畫）
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// 當頁面載入後觀察所有需要動畫的元素
+document.addEventListener('DOMContentLoaded', function() {
+    const animateElements = document.querySelectorAll('.feature-card, .branch-card, .contact-item');
+    animateElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+});
+
+// 工具函數：格式化電話號碼
+function formatPhoneNumber(phone) {
+    return phone.replace(/(\d{4})(\d{3})(\d{3})/, '$1-$2-$3');
+}
+
+// 工具函數：復制文本到剪貼板
+async function copyToClipboard(text) {
+    try {
+        await navigator.clipboard.writeText(text);
+        // 可以添加提示訊息
+        showMessage('已複製到剪貼板！');
+    } catch (err) {
+        console.error('複製失敗:', err);
+    }
+}
+
+// 顯示臨時訊息
+function showMessage(message, type = 'success') {
+    const messageEl = document.createElement('div');
+    messageEl.textContent = message;
+    messageEl.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${type === 'success' ? '#2ecc71' : '#e74c3c'};
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 5px;
+        z-index: 10000;
+        animation: slideInRight 0.3s ease;
+    `;
+    
+    document.body.appendChild(messageEl);
+    
+    setTimeout(() => {
+        messageEl.style.animation = 'slideOutRight 0.3s ease';
+        setTimeout(() => {
+            document.body.removeChild(messageEl);
+        }, 300);
+    }, 3000);
+}
+
+// CSS動畫樣式（通過JavaScript添加）
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideInRight {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+    
+    @keyframes slideOutRight {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(100%); opacity: 0; }
+    }
+`;
+document.head.appendChild(style);
+</script>
+
 <body>
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">城安無障礙規劃實業社</div>
+                <div class="logo" onclick="showPage('home')">城安無障礙規劃實業社</div>
                 <button class="menu-toggle" onclick="toggleMenu()">
                     <span id="menu-icon">☰</span>
                 </button>
                 <nav>
                     <ul id="nav-menu">
-                        <li><a href="#home" onclick="closeMenu()">首頁</a></li>
-                        <li><a href="#about" onclick="closeMenu()">公司簡介</a></li>
-                        <li><a href="#products" onclick="closeMenu()">產品服務</a></li>
-                        <li><a href="#branches" onclick="closeMenu()">分店資訊</a></li>
-                        <li><a href="#contact" onclick="closeMenu()">聯絡我們</a></li>
+                        <li><a onclick="showPage('home')" id="nav-home" class="active">首頁</a></li>
+                        <li><a onclick="showPage('about')" id="nav-about">公司簡介</a></li>
+                        <li><a onclick="showPage('products')" id="nav-products">產品服務</a></li>
+                        <li><a onclick="showPage('branches')" id="nav-branches">分店資訊</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
 
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1>讓生活更安全 讓愛更安心</h1>
-                <p>城安輔具專業團隊深耕輔具領域多年，提供專業輔具設備與無障礙空間規劃，讓您的家人在熟悉的環境中安全舒適地生活。</p>
-                <a href="#contact" class="cta-button">到府評估</a>
-            </div>
-        </div>
+    <!-- 首頁 --> 
+    <div id="home" class="page active"> 
+        <section class="hero"> 
+            <div class="container"> 
+                <div class="hero-content"> 
+                    <h1>讓生活更安全<br>讓愛更安心</h1> 
+                    <p>城安輔具專業團隊深耕輔具領域多年，提供專業輔具設備與無障礙空間規劃，讓您的家人在熟悉的環境中安全舒適地生活。</p> 
+                </div> 
+            </div> 
+        </section>
+
+    <section class="trust-section"> 
+        <div class="container"> 
+            <div class="trust-content"> 
+                <h2 class="section-title">值得信賴的專業團隊</h2> 
+                <p style="font-size: 1.2rem; color: #555; margin-bottom: 2rem;">我們秉持著「以人為本」的服務理念，作為雙北地區特約廠商，協助無數家庭打造安全舒適的生活環境。專業的評估與貼心的服務，贏得客戶與醫療院所的一致信賴。</p> 
+                <div class="trust-badges"> 
+                    <div class="trust-badge"> 
+                        <h4>💕 雙北特約</h4> 
+                        <p><a href="https://newrepat.sfaa.gov.tw/home/pavs/vendor/detail/4bc1e2b4925683da01928f33b742721d" target="_blank" style="color: #2c3e50; text-decoration: none;">政府認證廠商</a></p> 
+                    </div> 
+                    <div class="trust-badge"> 
+                        <h4>🏆 專業團隊</h4> 
+                        <p>專業評估師服務</p> 
+                    </div> 
+                    <div class="trust-badge"> 
+                        <h4>🔎 官方FB</h4> 
+                        <p><a href="https://www.facebook.com/profile.php?id=61559277592315&sk=about" target="_blank" style="color: #2c3e50; text-decoration: none;">追蹤我們</a></p> 
+                    </div> 
+                    <div class="trust-badge"> 
+                        <h4>🧑‍💻 官方LINE</h4> 
+                        <p><a href="https://line.me/ti/p/SzjNVVDE9y" target="_blank" style="color: #2c3e50; text-decoration: none;">聯絡我們</a></p> 
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
     </section>
 
-    <section class="about-section" id="about">
-        <div class="container">
-            <h2 class="section-title">關於城安無障礙規劃實業社</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>我們的使命</h3>
-                    <p>城安無障礙規劃實業社致力於為每個家庭打造安全、舒適的生活環境。我們深信每個人都應該在熟悉的家中享受有尊嚴的生活，不因身體機能的改變而受限。</p>
-                    
-                    <h3>專業服務</h3>
-                    <p>我們擁有專業的輔具評估師和無障礙規劃師，提供個人化的評估與建議。從輔具選配到居家環境改善，我們提供全方位的解決方案。</p>
-                    
-                    <h3>雙北特約廠商</h3>
-                    <p>作為雙北地區特約廠商，我們提供優質的輔具產品與專業施工服務，所有產品均通過相關認證，並提供完整的售後服務與保固。</p>
+    <section class="contact">         
+        <div class="container">             
+            <h2 class="section-title" style="color: rgb(255, 255, 255);">聯絡我們</h2>             
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: white; text-align: center;">準備為家人打造更安全舒適的生活環境嗎？我們的專業團隊隨時為您服務。</p>             
+            <div class="contact-info">                 
+                <div class="contact-item">                     
+                    <h4>📞 聯絡電話</h4>                     
+                    <p><a href="tel:0906828969" style="color: rgb(255, 255, 255); text-decoration: none;">0906-828-969</a><br>週一至週五 09:00-18:00</p>                 
+                </div>                 
+                <div class="contact-item">                     
+                    <h4>💻 線上諮詢</h4>                     
+                    <p>專業評估師為您解答<br>到府評估服務</p>                 
+                </div>             
+            </div>         
+        </div>     
+    </section>
+</div>
+
+    <!-- 公司簡介 -->
+    <div id="about" class="page">
+        <section class="about-section">
+            <div class="container">
+                <h2 class="section-title">關於城安無障礙規劃實業社</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>我們的使命</h3>
+                        <p>城安無障礙規劃實業社致力於為每個家庭打造安全、舒適的生活環境。我們深信每個人都應該在熟悉的家中享受有尊嚴的生活，不因身體機能的改變而受限。</p>
+                        
+                        <h3>專業服務</h3>
+                        <p>我們擁有專業的輔具評估師和無障礙規劃師，提供個人化的評估與建議。從輔具選配到居家環境改善，我們提供全方位的解決方案。</p>
+                        
+                        <h3>雙北特約廠商</h3>
+                        <p>作為雙北地區特約廠商，我們提供優質的輔具產品與專業施工服務，所有產品均通過相關認證，並提供完整的售後服務與保固。</p>
+
+                        <h3>服務理念</h3>
+                        <p>我們始終秉持「以人為本」的服務理念，深入瞭解每位客戶的需求與生活習慣，提供最適合的解決方案。我們不只是提供產品，更是您居家安全的守護者。</p>
+
+                        <h3>專業認證</h3>
+                        <p>我們的團隊成員均具備相關專業認證，並持續接受教育訓練，確保能提供最新、最專業的服務。我們與各大醫療院所合作，共同為客戶提供完整的照護服務。</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <section class="features" id="products">
-        <div class="container">
-            <h2 class="section-title">我們的專業服務</h2>
-            <div class="features-grid">
-                <div class="feature-card">
+    <!-- 產品服務 -->
+    <div id="products" class="page">
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">我們的專業服務</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
                     <div class="feature-icon">🚿</div>
                     <h3>社福馬桶與浴室設備</h3>
                     <p>社福馬桶、壁掛沐浴椅、面盆更新、浴缸移除等專業浴室設備，打造安全舒適的盥洗環境。</p>
@@ -588,17 +923,20 @@
                     <div class="feature-icon">🔧</div>
                     <h3>售後服務保障</h3>
                     <p>提供專業安裝、使用教學、定期保養及維修服務，讓您使用無後顧之憂。</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <section class="branches-section" id="branches">
-        <div class="container">
-            <h2 class="section-title">分店資訊</h2>
-            <div class="branches-grid">
-                <div class="branch-card">
-                    <h3>總公司 - 新北三重店</h3>
+    <!-- 分店資訊 -->
+    <div id="branches" class="page">
+        <section class="branches-section">
+            <div class="container">
+                <h2 class="section-title">分店資訊</h2>
+                <div class="branches-grid">
+                    <div class="branch-card">
+                         <h3>總公司 - 新北三重店</h3>
                     <div class="branch-info">
                         <p><strong>📍 地址：</strong>新北市三重區成功路41巷29號1樓</p>
                         <p><strong>📞 電話：</strong>0906-828-969</p>
@@ -698,92 +1036,80 @@
                         <div class="branch-buttons">
                             <a href="tel:0906828969" class="contact-btn">📞 立即撥打</a>
                             <a href="https://newrepat.sfaa.gov.tw/home/pavs/vendor/detail/4bc1e2b4932907af0196618fef720cb2" target="_blank" class="contact-btn">🏛️ 政府登記</a>
-                        </div>
+                       </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
+<script>
+function showPage(pageId) {
+    // 隱藏所有頁面
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => {
+        page.classList.remove('active');
+    });
 
-       <section class="trust-section">
-        <div class="container">
-            <div class="trust-content">
-                <h2 class="section-title">值得信賴的專業團隊</h2>
-                <p style="font-size: 1.2rem; color: #555; margin-bottom: 2rem;">我們秉持著「以人為本」的服務理念，作為雙北地區特約廠商，協助無數家庭打造安全舒適的生活環境。專業的評估與貼心的服務，贏得客戶與醫療院所的一致信賴。</p>
-                <div class="trust-badges">
-                    <div class="trust-badge">
-                        <h4>💕 雙北特約</h4>
-                        <p>政府認證廠商</p>
-                    </div>
-                    <div class="trust-badge">
-                        <h4>🏆 專業團隊</h4>
-                        <p>專業評估師服務</p>
-                    </div>
-                    <div class="trust-badge">
-                        <h4>🔎 官方FB</h4>
-                        <p><a href="https://www.facebook.com/profile.php?id=61559277592315&sk=about" target="_blank" style="color: #2c3e50; text-decoration: none;">追蹤我們</a></p>
-                    </div>
-                     <div class="trust-badge">
-                        <h4>🧑‍💻 官方LINE</h4>
-                        <p><a href="https://line.me/ti/p/SzjNVVDE9y" target="_blank" style="color: #2c3e50; text-decoration: none;">聯絡我們</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    // 顯示指定頁面
+    document.getElementById(pageId).classList.add('active');
 
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title" style="color: white;">聯絡我們</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">準備為家人打造更安全舒適的生活環境嗎？我們的專業團隊隨時為您服務。</p>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <h4>📞 聯絡電話</h4>
-                    <p><a href="tel:0906828969" style="color: white; text-decoration: none;">0906-828-969</a><br>週一至週五 09:00-18:00</p>
-                </div>
-                <div class="contact-item">
-                    <h4>💻 線上諮詢</h4>
-                    <p>專業評估師為您解答<br>到府評估服務</p>
-                </div>
-   <script>
-        function toggleMenu() {
-            const navMenu = document.getElementById('nav-menu');
-            const menuIcon = document.getElementById('menu-icon');
-            
-            navMenu.classList.toggle('show');
-            
-            // 切換漢堡選單圖示
-            if (navMenu.classList.contains('show')) {
-                menuIcon.innerHTML = '✕';
-            } else {
-                menuIcon.innerHTML = '☰';
-            }
-        }
+    // 更新導航選中狀態
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+    });
+    document.getElementById('nav-' + pageId).classList.add('active');
 
-        function closeMenu() {
-            const navMenu = document.getElementById('nav-menu');
-            const menuIcon = document.getElementById('menu-icon');
-            
-            navMenu.classList.remove('show');
-            menuIcon.innerHTML = '☰';
-        }
+    // 關閉手機選單
+    closeMenu();
 
-        // 點擊選單外的地方關閉選單
-        document.addEventListener('click', function(event) {
-            const navMenu = document.getElementById('nav-menu');
-            const menuToggle = document.querySelector('.menu-toggle');
-            
-            if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
-                closeMenu();
-            }
-        });
+    // 滾動到頁面頂部
+    window.scrollTo(0, 0);
+}
 
-        // 視窗大小改變時關閉選單
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                closeMenu();
-            }
-        });
-    </script>
-</body>
-</html>
+function toggleMenu() {
+    const navMenu = document.getElementById('nav-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    
+    navMenu.classList.toggle('show');
+    navMenu.classList.toggle('active'); // 保持向後兼容性
+
+    // 切換漢堡選單圖示
+    if (navMenu.classList.contains('show') || navMenu.classList.contains('active')) {
+        menuIcon.innerHTML = '✕';
+    } else {
+        menuIcon.innerHTML = '☰';
+    }
+}
+
+function closeMenu() {
+    const navMenu = document.getElementById('nav-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    
+    navMenu.classList.remove('show');
+    navMenu.classList.remove('active'); // 保持向後兼容性
+    
+    if (menuIcon) {
+        menuIcon.innerHTML = '☰';
+    }
+}
+
+// 點擊選單外的地方關閉選單
+document.addEventListener('click', function(event) {
+    const navMenu = document.getElementById('nav-menu');
+    const menuToggle = document.querySelector('.menu-toggle');
+    
+    // 檢查點擊是否在導航區域或選單按鈕外
+    if (!event.target.closest('nav') && !event.target.closest('.menu-toggle')) {
+        closeMenu();
+    }
+});
+
+// 視窗大小改變時關閉選單
+window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+        closeMenu();
+    }
+});
+</script>
