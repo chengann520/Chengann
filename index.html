@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>城安無障礙規劃實業社 - 專業輔具設備與無障礙空間規劃</title>
-    <style>
+
+<style>
         * {
             margin: 0;
             padding: 0;
@@ -14,7 +15,7 @@
         body {
             font-family: 'Georgia', serif;
             line-height: 1.6;
-            color: #5A4B7A;  /* 統一使用較溫和的深紫色 */
+            color: #2C3E50;
             background: linear-gradient(135deg, #F8F9FA 0%, #FFFFFF 100%);
             padding-top: 100px;
         }
@@ -25,12 +26,12 @@
             padding: 0 20px;
         }
 
-        /* Header */
+        /* Header - 以 #8FA8DB 為中心的小跨距漸層 */
         header {
-            background: linear-gradient(135deg, #5A4B7A 0%, #7B68B3 30%, #8FA8DB 70%, #B3C7E6 100%);  /* 統一的溫暖藍紫漸層 */
+            background: linear-gradient(135deg, #7A9BD1 0%, #8FA8DB 50%, #A4B5E5 100%);
             color: white;
             padding: 1rem 0;
-            box-shadow: 0 4px 20px rgba(90, 75, 122, 0.2);
+            box-shadow: 0 4px 20px rgba(143, 168, 219, 0.3);
             position: fixed;
             top: 0;
             left: 0;
@@ -46,12 +47,12 @@
         }
 
         .logo {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    cursor: pointer;
-}
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            cursor: pointer;
+        }
 
         /* Mobile Menu Toggle */
         .menu-toggle {
@@ -67,7 +68,7 @@
         }
 
         .menu-toggle:hover {
-            background: rgba(179, 199, 230, 0.3);
+            background: rgba(164, 181, 229, 0.3);
         }
 
         nav ul {
@@ -87,7 +88,7 @@
         }
 
         nav a:hover, nav a.active {
-            background: rgba(179, 199, 230, 0.25);
+            background: rgba(123, 104, 179, 0.4); /* 紫色點綴 */
             transform: translateY(-2px);
         }
 
@@ -102,10 +103,10 @@
             display: block;
         }
 
-        /* Hero Section */
+        /* Hero Section - 更細膩的漸層 */
         .hero {
-            background: linear-gradient(135deg, rgba(90, 75, 122, 0.9) 0%, rgba(123, 104, 179, 0.8) 30%, rgba(143, 168, 219, 0.8) 70%, rgba(179, 199, 230, 0.8) 100%), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect width="1200" height="800" fill="%23F8F9FA"/><circle cx="200" cy="200" r="100" fill="%238FA8DB" opacity="0.3"/><circle cx="1000" cy="600" r="150" fill="%237B68B3" opacity="0.3"/><circle cx="600" cy="400" r="120" fill="%23B3C7E6" opacity="0.3"/></svg>');
+            background: linear-gradient(135deg, rgba(122, 155, 209, 0.9) 0%, rgba(143, 168, 219, 0.85) 50%, rgba(164, 181, 229, 0.8) 100%), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect width="1200" height="800" fill="%23F8F9FA"/><circle cx="200" cy="200" r="100" fill="%238FA8DB" opacity="0.4"/><circle cx="1000" cy="600" r="150" fill="%237A9BD1" opacity="0.4"/><circle cx="600" cy="400" r="120" fill="%23A4B5E5" opacity="0.4"/></svg>');
             background-size: cover;
             background-position: center;
             color: white;
@@ -121,7 +122,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(179, 199, 230, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle at 30% 50%, rgba(164, 181, 229, 0.2) 0%, transparent 70%);
         }
 
         .hero-content {
@@ -147,7 +148,7 @@
 
         .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg, #7B68B3 0%, #8FA8DB 50%, #B3C7E6 100%);  /* 統一的溫暖漸層 */
+            background: linear-gradient(135deg, #8FA8DB 0%, #A4B5E5 50%, #7A9BD1 100%);
             color: white;
             padding: 1rem 2.5rem;
             text-decoration: none;
@@ -155,7 +156,7 @@
             font-size: 1.2rem;
             font-weight: bold;
             transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(123, 104, 179, 0.3);
+            box-shadow: 0 6px 20px rgba(143, 168, 219, 0.4);
             animation: fadeInUp 1s ease-out 0.6s both;
             cursor: pointer;
             border: none;
@@ -163,8 +164,8 @@
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(143, 168, 219, 0.4);
-            background: linear-gradient(135deg, #B3C7E6 0%, #8FA8DB 50%, #7B68B3 100%);
+            box-shadow: 0 8px 25px rgba(123, 104, 179, 0.5); /* 紫色陰影點綴 */
+            background: linear-gradient(135deg, #7B68B3 0%, #8FA8DB 50%, #A4B5E5 100%); /* 添加紫色漸層 */
         }
 
         /* Features Section */
@@ -176,7 +177,7 @@
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            color: #5A4B7A;
+            color: #0D2947;
             margin-bottom: 3rem;
             position: relative;
         }
@@ -189,7 +190,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background: linear-gradient(135deg, #7B68B3 0%, #8FA8DB 50%, #B3C7E6 100%);
+            background: linear-gradient(135deg, #7A9BD1 0%, #7B68B3 30%, #8FA8DB 70%, #A4B5E5 100%); /* 加入紫色點綴 */
             border-radius: 2px;
         }
 
@@ -200,62 +201,62 @@
             margin-top: 4rem;
         }
 
-        /* 統一產品服務卡片樣式 */
+        /* 產品服務卡片樣式 */
         .feature-card {
             text-align: center;
             padding: 2.5rem;
-            background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
+            background: linear-gradient(135deg, #FFFFFF 0%, rgba(164, 181, 229, 0.05) 100%);
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(143, 168, 219, 0.1);
             transition: all 0.3s ease;
-            border: 2px solid #8FA8DB;  /* 統一使用溫暖藍色 */
+            border: 2px solid #A4B5E5;
         }
 
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 40px rgba(143, 168, 219, 0.2);
             background: linear-gradient(135deg, #FFFFFF 0%, rgba(143, 168, 219, 0.1) 100%);
-            border-color: #7B68B3;
+            border-color: #7B68B3; /* 紫色邊框點綴 */
         }
 
         .feature-icon {
             font-size: 4rem;
             margin-bottom: 1.5rem;
-            color: #8FA8DB;  /* 統一圖示顏色 */
+            color: #0D2947;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
         .feature-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: #5A4B7A;
+            color: #0D2947;
         }
 
         .feature-card p {
-            color: #5A4B7A;
+            color: #2C3E50;
             line-height: 1.8;
             opacity: 0.8;
         }
         
-/* 產品圖片樣式 */
+        /* 產品圖片樣式 */
         .feature-image {
             width: 100%;
             height: 200px;
             object-fit: cover;
             border-radius: 10px;
             margin: 15px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(143, 168, 219, 0.15);
             transition: all 0.3s ease;
         }
 
         .feature-card:hover .feature-image {
             transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(143, 168, 219, 0.3);
+            box-shadow: 0 8px 20px rgba(123, 104, 179, 0.25); /* 紫色陰影點綴 */
         }
 
         /* Trust Section */
         .trust-section {
-            background: linear-gradient(135deg, #F8F9FA 0%, rgba(143, 168, 219, 0.1) 50%, rgba(179, 199, 230, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(164, 181, 229, 0.1) 0%, rgba(143, 168, 219, 0.05) 50%, #F8F9FA 100%);
             padding: 4rem 0;
             text-align: center;
         }
@@ -277,18 +278,19 @@
             background: white;
             padding: 1.5rem;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(143, 168, 219, 0.1);
             transition: transform 0.3s ease;
-            border-top: 3px solid #8FA8DB;  /* 統一使用溫暖藍色 */
+            border-top: 3px solid #8FA8DB;
         }
 
         .trust-badge:hover {
             transform: scale(1.05);
+            border-top-color: #7B68B3; /* 紫色點綴 */
         }
 
         /* About Section */
         .about-section {
-            background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
+            background: linear-gradient(135deg, #FFFFFF 0%, rgba(164, 181, 229, 0.03) 100%);
             padding: 5rem 0;
         }
 
@@ -303,23 +305,28 @@
         .about-text h3 {
             margin-bottom: 1rem;
             margin-top: 2rem;
-            color: #7B68B3;  /* 統一標題顏色 */
+            color: #0D2947;
+            font-size: 1.4rem;
         }
 
         .about-text h3:nth-of-type(1) {
             margin-top: 0;
         }
 
+        .about-text h3:nth-of-type(2) {
+            color: #7B68B3; /* 第二個標題使用紫色點綴 */
+        }
+
         .about-text p {
             line-height: 1.8;
-            color: #5A4B7A;
+            color: #2C3E50;
             opacity: 0.8;
             margin-bottom: 1.5rem;
         }
 
         /* Branches Section */
         .branches-section {
-            background: linear-gradient(135deg, rgba(179, 199, 230, 0.1) 0%, rgba(143, 168, 219, 0.1) 50%, #F8F9FA 100%);
+            background: linear-gradient(135deg, rgba(164, 181, 229, 0.08) 0%, rgba(143, 168, 219, 0.05) 50%, #F8F9FA 100%);
             padding: 5rem 0;
         }
 
@@ -330,34 +337,34 @@
             margin-top: 3rem;
         }
 
-        /* 統一分店卡片樣式 */
+        /* 分店卡片樣式 */
         .branch-card {
             background: white;
             padding: 2.5rem;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(143, 168, 219, 0.1);
             transition: all 0.3s ease;
-            border-top: 4px solid #8FA8DB;  /* 統一使用溫暖藍色 */
+            border-top: 4px solid #8FA8DB;
         }
 
         .branch-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            border-top-color: #7B68B3;  /* hover時變為深一點的紫色 */
+            box-shadow: 0 20px 40px rgba(143, 168, 219, 0.2);
+            border-top-color: #7B68B3; /* 紫色點綴 */
         }
 
         .branch-card h3 {
-            color: #5A4B7A;
+            color: #0D2947;
             margin-bottom: 1.5rem;
             font-size: 1.4rem;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid #8FA8DB;  /* 統一底線顏色 */
+            border-bottom: 2px solid #A4B5E5;
         }
 
         .branch-info p {
             margin-bottom: 0.8rem;
             line-height: 1.6;
-            color: #5A4B7A;
+            color: #2C3E50;
             opacity: 0.8;
         }
 
@@ -369,7 +376,7 @@
         }
 
         .contact-btn {
-            background: linear-gradient(135deg, #8FA8DB 0%, rgba(143, 168, 219, 0.8) 100%);  /* 統一按鈕樣式 */
+            background: linear-gradient(135deg, #8FA8DB 0%, #A4B5E5 100%);
             color: white;
             padding: 0.8rem 1.5rem;
             text-decoration: none;
@@ -385,13 +392,13 @@
 
         .contact-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(123, 104, 179, 0.4);
-            background: linear-gradient(135deg, #7B68B3 0%, rgba(123, 104, 179, 0.9) 100%);
+            box-shadow: 0 5px 15px rgba(123, 104, 179, 0.4); /* 紫色陰影點綴 */
+            background: linear-gradient(135deg, #7B68B3 0%, #8FA8DB 100%); /* 加入紫色漸層 */
         }
 
         /* Contact Section */
         .contact {
-            background: linear-gradient(135deg, #5A4B7A 0%, #7B68B3 30%, #8FA8DB 70%, #B3C7E6 100%);
+            background: linear-gradient(135deg, #7A9BD1 0%, #8FA8DB 50%, #A4B5E5 100%);
             color: white;
             padding: 4rem 0;
             text-align: center;
@@ -406,30 +413,39 @@
 
         .contact-item {
             padding: 1.5rem;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.15);
             border-radius: 10px;
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
-            border-left: 4px solid #B3C7E6;  /* 統一邊框顏色 */
+            border-left: 4px solid rgba(255,255,255,0.3);
         }
 
         .contact-item:hover {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.25);
             transform: translateY(-5px);
+            border-left-color: #7B68B3; /* 紫色邊框點綴 */
         }
 
         .contact-item h4 {
-            color: #F8F9FA;
+            color: white;
             margin-bottom: 0.5rem;
             font-size: 1.2rem;
         }
 
+        .contact-item p {
+            color: rgba(255,255,255,0.9);
+        }
+
         /* Footer */
         footer {
-            background: linear-gradient(135deg, #5A4B7A 0%, rgba(90, 75, 122, 0.9) 100%);
+            background: linear-gradient(135deg, #7A9BD1 0%, rgba(122, 155, 209, 0.95) 100%);
             color: white;
             text-align: center;
             padding: 2rem 0;
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.9);
         }
 
         /* Animations */
@@ -447,6 +463,51 @@
         /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
+        }
+
+        /* Additional utility classes - 更新為新的色彩系統與紫色點綴 */
+        .text-primary {
+            color: #0D2947;
+        }
+
+        .text-secondary {
+            color: #7A9BD1;
+        }
+
+        .text-light {
+            color: #A4B5E5;
+        }
+
+        .text-purple {
+            color: #7B68B3;
+        }
+
+        .bg-primary {
+            background: #8FA8DB;
+        }
+
+        .bg-secondary {
+            background: #7A9BD1;
+        }
+
+        .bg-light {
+            background: #A4B5E5;
+        }
+
+        .bg-purple {
+            background: #7B68B3;
+        }
+
+        .gradient-primary {
+            background: linear-gradient(135deg, #7A9BD1 0%, #8FA8DB 50%, #A4B5E5 100%);
+        }
+
+        .gradient-reverse {
+            background: linear-gradient(135deg, #A4B5E5 0%, #8FA8DB 50%, #7A9BD1 100%);
+        }
+
+        .gradient-purple {
+            background: linear-gradient(135deg, #7B68B3 0%, #8FA8DB 50%, #A4B5E5 100%);
         }
 
         /* Responsive Design */
@@ -474,7 +535,7 @@
                 left: -100%;
                 width: 100%;
                 height: calc(100vh - 80px);
-                background: linear-gradient(135deg, #5A4B7A 0%, #7B68B3 30%, #8FA8DB 70%, #B3C7E6 100%);
+                background: linear-gradient(135deg, #7A9BD1 0%, #8FA8DB 50%, #A4B5E5 100%);
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: center;
@@ -498,14 +559,14 @@
                 display: block;
                 width: 100%;
                 padding: 1rem;
-                background: rgba(255, 255, 255, 0.1);
+                background: rgba(255, 255, 255, 0.15);
                 border-radius: 10px;
                 backdrop-filter: blur(10px);
                 font-size: 1.2rem;
             }
 
             nav ul li a:hover {
-                background: rgba(179, 199, 230, 0.25);
+                background: rgba(123, 104, 179, 0.4); /* 紫色點綴 */
                 transform: none;
             }
             
@@ -538,6 +599,47 @@
 
             .logo {
                 font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 4rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+            
+            .feature-card, .branch-card {
+                padding: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -805,7 +907,7 @@ document.head.appendChild(style);
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo" onclick="showPage('home')">城安無障礙規劃實業社  </div>
+                <div class="logo" onclick="showPage('home')">城安無障礙規劃實業社</div>
                 <button class="menu-toggle" onclick="toggleMenu()">
                     <span id="menu-icon">☰</span>
                 </button>
