@@ -772,69 +772,56 @@
 
 
 
-/* 手機響應式設計 */
+        /* 手機響應式設計 */
+        @media (max-width: 768px) {
+            .feature-card {
+                margin: 10px;
+                max-width: 100%;
+            }
+            
+            .photo-carousel {
+                aspect-ratio: 4/3; /* 手機版也保持4:3比例 */
+            }
+            
+            .nav-button {
+                width: 35px;
+                height: 35px;
+                font-size: 14px;
+            }
+            
+            .feature-content {
+                padding: 20px;
+            }
+            
+            .feature-content h3 {
+                font-size: 20px;
+            }
+            
+            .feature-content p {
+                font-size: 14px;
+            }
+        }
+
+        /* 觸控滑動支援 */
+        .photo-carousel {
+            touch-action: pan-y pinch-zoom;
+        }
+        /* 影片響應式樣式 */
+.video-container {
+    animation: fadeInUp 1s ease-out 0.9s both;
+}
+
+.video-wrapper {
+    transition: all 0.3s ease;
+}
+
+.video-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(143, 168, 219, 0.4);
+}
+
+/* 手機響應式 */
 @media (max-width: 768px) {
-    .feature-card {
-        margin: 10px;
-        max-width: 100%; /* 讓卡片佔滿容器寬度 */
-        width: calc(100% - 20px); /* 扣除左右 margin */
-        box-sizing: border-box;
-    }
-    
-    .photo-carousel {
-        aspect-ratio: 4/3; /* 手機版保持4:3比例 */
-        touch-action: pan-y pinch-zoom; /* 觸控滑動支援 */
-        width: 100%;
-        max-width: 100%;
-    }
-}
-
-/* 更小螢幕的額外調整 */
-@media (max-width: 480px) {
-    .feature-card {
-        margin: 8px;
-        width: calc(100% - 16px);
-        padding: 15px; /* 適當的內邊距 */
-    }
-    
-    .photo-carousel {
-        aspect-ratio: 1/1; /* 小螢幕使用正方形比例 */
-    }
-}
-
-/* 極小螢幕（如舊款手機）*/
-@media (max-width: 320px) {
-    .feature-card {
-        margin: 5px;
-        width: calc(100% - 10px);
-        padding: 10px;
-    }
-    
-    .photo-carousel {
-        height: auto;
-        min-height: 200px;
-    }
-}
-    
-    .nav-button {
-        width: 35px;
-        height: 35px;
-        font-size: 14px;
-    }
-    
-    .feature-content {
-        padding: 20px;
-    }
-    
-    .feature-content h3 {
-        font-size: 20px;
-    }
-    
-    .feature-content p {
-        font-size: 14px;
-    }
-    
-    /* 手機版影片容器調整 */
     .video-container {
         margin-top: 1.5rem;
     }
@@ -848,63 +835,9 @@
     }
 }
 
-/* 小螢幕手機優化 */
 @media (max-width: 480px) {
     .video-container {
         margin-top: 1rem;
-    }
-    
-    .feature-content {
-        padding: 15px;
-    }
-    
-    .feature-content h3 {
-        font-size: 18px;
-    }
-    
-    .feature-content p {
-        font-size: 13px;
-    }
-}
-
-/* 觸控滑動支援 - 桌面版也需要 */
-.photo-carousel {
-    touch-action: pan-y pinch-zoom;
-}
-
-/* 影片響應式樣式 */
-.video-container {
-    animation: fadeInUp 1s ease-out 0.9s both;
-}
-
-.video-wrapper {
-    transition: all 0.3s ease;
-    border-radius: 15px; /* 桌面版圓角 */
-    overflow: hidden; /* 確保子元素不會超出圓角 */
-}
-
-.video-wrapper:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(143, 168, 219, 0.4);
-}
-
-.video-wrapper iframe {
-    border-radius: inherit; /* 繼承父元素的圓角 */
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16/9; /* 標準影片比例 */
-}
-
-/* 確保影片在小螢幕上的可用性 */
-@media (max-width: 576px) {
-    .nav-button {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-    }
-    
-    .feature-card {
-        margin: 5px;
     }
 }
     </style>
