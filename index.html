@@ -644,451 +644,168 @@
         }
 
 .feature-card {
-    text-align: center;
-    padding: 1.5rem;
-    background: linear-gradient(135deg, #FFFFFF 0%, rgba(164, 181, 229, 0.05) 100%);
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(143, 168, 219, 0.1);
-    transition: all 0.3s ease;
-    border: 2px solid #A4B5E5;
-}
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #FFFFFF 0%, rgba(164, 181, 229, 0.05) 100%);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(143, 168, 219, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid #A4B5E5;
+        }
+        .feature-content {
+            padding: 5px;
+            text-align: center;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: start;
+            margin-top: 2rem;
+        }
+        .feature-content h3 {
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+            color: #0D2947;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+        .feature-content h3:nth-of-type(1) {
+            margin-top: 0;
+        }
 
-.feature-content {
-    padding: 5px;
-    text-align: center;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    align-items: start;
-    margin-top: 2rem;
-}
+        .feature-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #2c3e50ee;
+            opacity: 1.0;
+            margin-bottom: 0.5rem;
+        }
+        .photo-carousel {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3; /* 保持4:3比例 */
+            overflow: hidden;
+            padding: 5px;
+            box-sizing: border-box;
+        }
 
-.feature-content h3 {
-    margin-bottom: 1rem;
-    margin-top: 2rem;
-    color: #0D2947;
-    font-size: 1.4rem;
-    font-weight: bold;
-}
+        .photo-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
 
-.feature-content h3:nth-of-type(1) {
-    margin-top: 0;
-}
+        .photo-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            margin: 5 5px;
+            box-sizing: border-box;
+        }
 
-.feature-content p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #2c3e50ee;
-    opacity: 1.0;
-    margin-bottom: 0.5rem;
-}
 
-.photo-carousel {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4/3;
-    overflow: hidden;
-    padding: 5px;
-    box-sizing: border-box;
-    /* 添加觸控滑動支援 */
-    touch-action: pan-y pinch-zoom;
-    -webkit-overflow-scrolling: touch;
-}
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #333;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
 
-.photo-container {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    height: 100%;
-    /* 防止在觸控設備上的意外選擇 */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
+        .nav-button:hover {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transform: translateY(-50%) scale(1.1);
+        }
 
-.photo-slide {
-    min-width: 100%;
-    height: 100%;
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 10px;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    border-radius: 15px;
-    margin: 0 5px;
-    box-sizing: border-box;
-    /* 優化圖片載入效能 */
-    background-repeat: no-repeat;
-}
+        .nav-button.prev {
+            left: 25px;
+        }
 
-.nav-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.9);
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    color: #333;
-    transition: all 0.3s ease;
-    z-index: 10;
-    /* 增加點擊區域 */
-    -webkit-tap-highlight-color: transparent;
-}
+        .nav-button.next {
+            right: 25px;
+        }
 
-.nav-button:hover {
-    background: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transform: translateY(-50%) scale(1.1);
-}
+        .dots-container {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
 
-.nav-button.prev {
-    left: 25px;
-}
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-.nav-button.next {
-    right: 25px;
-}
+        .dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
 
-.dots-container {
-    position: absolute;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 8px;
-    z-index: 10;
-}
 
-.dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    /* 增加手机端点击区域 */
-    position: relative;
-}
 
-/* 为小圆点添加更大的点击区域（仅在触控设备上） */
-.dot::before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    background: transparent;
-}
+        /* 手機響應式設計 */
+        @media (max-width: 768px) {
+            .feature-card {
+                margin: 10px;
+                max-width: 100%;
+            }
+            
+            .photo-carousel {
+                height: 200px;
+            }
+            
+            .nav-button {
+                width: 35px;
+                height: 35px;
+                font-size: 14px;
+            }
+            
+            .feature-content {
+                padding: 20px;
+            }
+            
+            .feature-content h3 {
+                font-size: 20px;
+            }
+            
+            .feature-content p {
+                font-size: 14px;
+            }
+        }
 
-.dot.active {
-    background: white;
-    transform: scale(1.2);
-}
-
-/* 影片响应式样式 */
-.video-container {
-    animation: fadeInUp 1s ease-out 0.9s both;
-}
-
-.video-wrapper {
-    transition: all 0.3s ease;
-    /* 确保视频容器不会溢出 */
-    width: 100%;
-    height: auto;
-}
-
-.video-wrapper:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(143, 168, 219, 0.4);
-}
-
-.video-wrapper iframe {
-    width: 100%;
-    height: auto;
-    min-height: 200px;
-}
-
-/* 平板电脑响应式设计 */
-@media (max-width: 1024px) and (min-width: 769px) {
-    .feature-card {
-        margin: 15px;
-        padding: 1.2rem;
-    }
-    
-    .nav-button {
-        width: 38px;
-        height: 38px;
-        font-size: 15px;
-    }
-    
-    .nav-button.prev {
-        left: 20px;
-    }
-    
-    .nav-button.next {
-        right: 20px;
-    }
-}
-
-/* 手机横屏模式优化 */
-@media (max-width: 768px) and (orientation: landscape) {
-    .photo-carousel {
-        aspect-ratio: 16/9; /* 横屏时使用更宽的比例 */
-    }
-    
-    .feature-content {
-        padding: 15px;
-        gap: 1.5rem;
-    }
-    
-    .feature-content h3 {
-        font-size: 18px;
-        margin-top: 1.5rem;
-    }
-    
-    .feature-content p {
-        font-size: 14px;
-    }
-}
-
-/* 手机竖屏响应式设计 */
-@media (max-width: 768px) {
-    .feature-card {
-        margin: 10px;
-        max-width: 100%;
-        padding: 1rem;
-        border-radius: 15px;
-        /* 确保卡片不会超出屏幕 */
-        width: calc(100% - 20px);
-        box-sizing: border-box;
-    }
-    
-    .photo-carousel {
-        aspect-ratio: 4/3;
-        padding: 3px;
-        border-radius: 10px;
-    }
-    
-    .photo-slide {
-        border-radius: 10px;
-        margin: 0 3px;
-        font-size: 12px;
-    }
-    
-    .nav-button {
-        width: 35px;
-        height: 35px;
-        font-size: 14px;
-        /* 在手机上始终显示导航按钮 */
-        display: flex;
-    }
-    
-    .nav-button.prev {
-        left: 15px;
-    }
-    
-    .nav-button.next {
-        right: 15px;
-    }
-    
-    .dots-container {
-        bottom: 15px;
-        gap: 6px;
-    }
-    
-    .dot {
-        width: 12px;
-        height: 12px;
-        /* 增加手机端圆点大小便于点击 */
-    }
-    
-    .feature-content {
-        padding: 20px;
-        gap: 1.5rem;
-        margin-top: 1.5rem;
-    }
-    
-    .feature-content h3 {
-        font-size: 20px;
-        margin-top: 1.5rem;
-        margin-bottom: 0.8rem;
-    }
-    
-    .feature-content h3:nth-of-type(1) {
-        margin-top: 0;
-    }
-    
-    .feature-content p {
-        font-size: 14px;
-        line-height: 1.5;
-        margin-bottom: 0.8rem;
-    }
-    
-    .video-container {
-        margin-top: 1.5rem;
-    }
-    
-    .video-wrapper {
-        border-radius: 10px;
-        /* 移除手机端的悬停效果 */
-        transform: none;
-    }
-    
-    .video-wrapper:hover {
-        transform: none;
-        box-shadow: 0 10px 25px rgba(143, 168, 219, 0.3);
-    }
-    
-    .video-wrapper iframe {
-        border-radius: 10px;
-        min-height: 180px;
-    }
-}
-
-/* 小屏手机优化 */
-@media (max-width: 480px) {
-    .feature-card {
-        margin: 8px;
-        padding: 0.8rem;
-        width: calc(100% - 16px);
-    }
-    
-    .photo-carousel {
-        padding: 2px;
-    }
-    
-    .photo-slide {
-        border-radius: 8px;
-        margin: 0 2px;
-        font-size: 10px;
-    }
-    
-    .nav-button {
-        width: 30px;
-        height: 30px;
-        font-size: 12px;
-    }
-    
-    .nav-button.prev {
-        left: 10px;
-    }
-    
-    .nav-button.next {
-        right: 10px;
-    }
-    
-    .dots-container {
-        bottom: 10px;
-        gap: 5px;
-    }
-    
-    .dot {
-        width: 10px;
-        height: 10px;
-    }
-    
-    .feature-content {
-        padding: 15px;
-        gap: 1rem;
-        margin-top: 1rem;
-    }
-    
-    .feature-content h3 {
-        font-size: 18px;
-        margin-top: 1rem;
-        margin-bottom: 0.6rem;
-    }
-    
-    .feature-content p {
-        font-size: 13px;
-        line-height: 1.4;
-        margin-bottom: 0.6rem;
-    }
-    
-    .video-container {
-        margin-top: 1rem;
-    }
-    
-    .video-wrapper iframe {
-        min-height: 160px;
-        border-radius: 8px;
-    }
-}
-
-/* 超小屏设备优化 */
-@media (max-width: 360px) {
-    .feature-card {
-        margin: 5px;
-        padding: 0.6rem;
-        width: calc(100% - 10px);
-        border-radius: 12px;
-    }
-    
-    .nav-button {
-        width: 28px;
-        height: 28px;
-        font-size: 11px;
-    }
-    
-    .nav-button.prev {
-        left: 8px;
-    }
-    
-    .nav-button.next {
-        right: 8px;
-    }
-    
-    .feature-content {
-        padding: 12px;
-    }
-    
-    .feature-content h3 {
-        font-size: 16px;
-    }
-    
-    .feature-content p {
-        font-size: 12px;
-    }
-    
-    .video-wrapper iframe {
-        min-height: 140px;
-    }
-}
-
-/* 修复可能的样式冲突 */
-* {
-    box-sizing: border-box;
-}
-
-/* 防止水平滚动 */
-body {
-    overflow-x: hidden;
-}
-
-/* 优化触控反馈 */
-@media (hover: none) and (pointer: coarse) {
-    .nav-button:hover {
-        transform: translateY(-50%) scale(1.05);
-    }
-    
-    .video-wrapper:hover {
-        transform: none;
-        box-shadow: 0 10px 25px rgba(143, 168, 219, 0.3);
-    }
-}
+        /* 觸控滑動支援 */
+        .photo-carousel {
+            touch-action: pan-y pinch-zoom;
+        }
         /* 影片響應式樣式 */
 .video-container {
     animation: fadeInUp 1s ease-out 0.9s both;
