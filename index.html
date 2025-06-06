@@ -773,16 +773,48 @@
 
 
 /* 手機響應式設計 */
-@media (max-width:240 {
+@media (max-width: 768px) {
     .feature-card {
         margin: 10px;
-        max-width: 50%;
+        max-width: 100%; /* 讓卡片佔滿容器寬度 */
+        width: calc(100% - 20px); /* 扣除左右 margin */
+        box-sizing: border-box;
     }
     
     .photo-carousel {
         aspect-ratio: 4/3; /* 手機版保持4:3比例 */
         touch-action: pan-y pinch-zoom; /* 觸控滑動支援 */
+        width: 100%;
+        max-width: 100%;
     }
+}
+
+/* 更小螢幕的額外調整 */
+@media (max-width: 480px) {
+    .feature-card {
+        margin: 8px;
+        width: calc(100% - 16px);
+        padding: 15px; /* 適當的內邊距 */
+    }
+    
+    .photo-carousel {
+        aspect-ratio: 1/1; /* 小螢幕使用正方形比例 */
+    }
+}
+
+/* 極小螢幕（如舊款手機）*/
+@media (max-width: 320px) {
+    .feature-card {
+        margin: 5px;
+        width: calc(100% - 10px);
+        padding: 10px;
+    }
+    
+    .photo-carousel {
+        height: auto;
+        min-height: 200px;
+    }
+}
     
     .nav-button {
         width: 35px;
