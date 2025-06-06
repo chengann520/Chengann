@@ -233,10 +233,10 @@
         }
 
         .feature-card p {
-            color: #2C3E50;
-            line-height: 1.8;
-            opacity: 0.8;
-        }
+    color: #0D2947;  /* 改成深藍色 */
+    line-height: 1.6;
+    opacity: 1;      /* 移除透明度讓顏色更深 */
+}
         
         /* 產品圖片樣式 */
         .feature-image {
@@ -318,10 +318,10 @@
         }
 
         .about-text p {
-            line-height: 1.8;
-            color: #2C3E50;
-            opacity: 0.8;
-            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            color: #2c3e50ee;
+            opacity: 1.0;
+            margin-bottom: 0.5rem;
         }
 
         /* Branches Section */
@@ -642,6 +642,204 @@
                 font-size: 1.8rem;
             }
         }
+
+.feature-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #FFFFFF 0%, rgba(164, 181, 229, 0.05) 100%);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(143, 168, 219, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid #A4B5E5;
+        }
+        .feature-content {
+            padding: 5px;
+            text-align: center;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: start;
+            margin-top: 2rem;
+        }
+        .feature-content h3 {
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+            color: #0D2947;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+        .feature-content h3:nth-of-type(1) {
+            margin-top: 0;
+        }
+
+        .feature-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #2c3e50ee;
+            opacity: 1.0;
+            margin-bottom: 0.5rem;
+        }
+        .photo-carousel {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3; /* 保持4:3比例 */
+            overflow: hidden;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        .photo-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+
+        .photo-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            margin: 5 5px;
+            box-sizing: border-box;
+        }
+
+
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #333;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .nav-button:hover {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .nav-button.prev {
+            left: 25px;
+        }
+
+        .nav-button.next {
+            right: 25px;
+        }
+
+        .dots-container {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+
+
+        /* 手機響應式設計 */
+        @media (max-width: 768px) {
+            .feature-card {
+                margin: 10px;
+                max-width: 100%;
+            }
+            
+            .photo-carousel {
+                aspect-ratio: 4/3; /* 手機版也保持4:3比例 */
+            }
+            
+            .nav-button {
+                width: 35px;
+                height: 35px;
+                font-size: 14px;
+            }
+            
+            .feature-content {
+                padding: 20px;
+            }
+            
+            .feature-content h3 {
+                font-size: 20px;
+            }
+            
+            .feature-content p {
+                font-size: 14px;
+            }
+        }
+
+        /* 觸控滑動支援 */
+        .photo-carousel {
+            touch-action: pan-y pinch-zoom;
+        }
+        /* 影片響應式樣式 */
+.video-container {
+    animation: fadeInUp 1s ease-out 0.9s both;
+}
+
+.video-wrapper {
+    transition: all 0.3s ease;
+}
+
+.video-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(143, 168, 219, 0.4);
+}
+
+/* 手機響應式 */
+@media (max-width: 768px) {
+    .video-container {
+        margin-top: 1.5rem;
+    }
+    
+    .video-wrapper {
+        border-radius: 10px;
+    }
+    
+    .video-wrapper iframe {
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-container {
+        margin-top: 1rem;
+    }
+}
     </style>
 </head>
  <script>
@@ -928,17 +1126,25 @@ document.head.appendChild(style);
         <section class="hero"> 
             <div class="container"> 
                 <div class="hero-content"> 
-                    <h1>讓生活更安全<br>讓愛更安心</h1> 
-                    <p>城安輔具專業團隊深耕輔具領域，提供專業輔具設備與無障礙空間規劃，讓您的家人在熟悉的環境中安全舒適地生活</p> 
-                </div> 
-            </div> 
+                    <h1>生活更安全 讓愛更安心</h1> 
+                    <p>城安秉持著「以人為本」的服務理念 提供專業輔具設備與無障礙空間規劃<br>讓您的家人在熟悉的環境中安全舒適地生活</p> 
+<div class="video-container" style="margin-top: 2rem;">
+    <div class="video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 15px; box-shadow: 0 10px 30px rgba(143, 168, 219, 0.3);">
+<iframe 
+    src="https://www.youtube.com/embed/D2__7Vosc8g?autoplay=1&mute=1&loop=1&playlist=D2__7Vosc8g" 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 15px;"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+</iframe>
+    </div>
+</div>
         </section>
 
     <section class="trust-section"> 
         <div class="container"> 
             <div class="trust-content"> 
                 <h2 class="section-title">值得信賴的專業團隊</h2> 
-                <p style="font-size: 1.2rem; color: #555; margin-bottom: 2rem;">我們秉持著「以人為本」的服務理念，作為雙北地區特約廠商，協助無數家庭打造安全舒適的生活環境。專業的評估與貼心的服務，贏得客戶信賴</p> 
+                <p style="font-size: 1.2rem; color: #555; margin-bottom: 2rem;">城安作為雙北地區特約廠商 協助無數家庭打造安全舒適的生活環境<br>專業的評估與貼心的服務~ 贏得無數客戶信賴!</p> 
                 <div class="trust-badges"> 
                     <div class="trust-badge"> 
                         <h4><a href="https://newrepat.sfaa.gov.tw/home/pavs/vendor/detail/4bc1e2b4925683da01928f33b742721d" target="_blank" style="color: #2c3e50; text-decoration: none;">💕 雙北特約</a></h4> 
@@ -950,11 +1156,11 @@ document.head.appendChild(style);
                     </div> 
                     <div class="trust-badge"> 
                         <h4><a href="https://www.facebook.com/profile.php?id=61559277592315&rdid=Mq78zEZGVLhtkMm0&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1G7DEg9Kxf%2F#" target="_blank" style="color: #2c3e50; text-decoration: none;">🔎 官方FB</a></h4> 
-                        <p><a href="https://www.facebook.com/profile.php?id=61559277592315&rdid=Mq78zEZGVLhtkMm0&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1G7DEg9Kxf%2F#" target="_blank" style="color: #2c3e50; text-decoration: none;">追蹤我們</a></p> 
+                        <p><a href="https://www.facebook.com/profile.php?id=61559277592315&rdid=Mq78zEZGVLhtkMm0&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1G7DEg9Kxf%2F#" target="_blank" style="color: #2c3e50; text-decoration: none;">追蹤城安</a></p> 
                     </div> 
                     <div class="trust-badge"> 
                         <h4><a href="https://line.me/ti/p/SzjNVVDE9y" target="_blank" style="color: #2c3e50; text-decoration: none;">🧑‍💻 官方LINE</a></h4>
-                        <p><a href="https://line.me/ti/p/SzjNVVDE9y" target="_blank" style="color: #2c3e50; text-decoration: none;">聯絡我們</a></p> 
+                        <p><a href="https://line.me/ti/p/SzjNVVDE9y" target="_blank" style="color: #2c3e50; text-decoration: none;">聯絡城安</a></p> 
                     </div> 
                 </div> 
             </div> 
@@ -964,7 +1170,7 @@ document.head.appendChild(style);
     <section class="contact">         
         <div class="container">             
             <h2 class="section-title" style="color: rgb(255, 255, 255);">聯絡我們</h2>             
-            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: white; text-align: center;">準備為家人打造更安全舒適的生活環境嗎？我們的專業團隊隨時為您服務</p>             
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: white; text-align: center;">準備為家人打造更安全舒適的生活環境嗎？城安的專業團隊隨時為您服務</p>             
             <div class="contact-info">                 
                 <div class="contact-item">                     
                     <h4><a href="tel:0906828969" style="color: rgb(255, 255, 255); text-decoration: none;">📞 聯絡電話</a></h4>                     
@@ -988,29 +1194,51 @@ document.head.appendChild(style);
                     <div class="about-text">
                         <div class="features-grid">
                             <div class="feature-card">
-                                <h3>我們的使命</h3>
-                                <p>城安無障礙規劃實業社致力於為每個家庭打造安全、舒適的生活環境。我們深信每個人都應該在熟悉的家中享受有尊嚴的生活，不因身體機能的改變而受限</p>
+                                <h3>使命與理念</h3>
+                                <p>城安誠心為每個家庭打造安全、舒適的生活環境，深信每個人都應該在熟悉的家中享受有尊嚴的生活，不因身體機能的改變而受限<br><br>城安秉持「以人為本」的服務理念<br>深入瞭解每位客戶的需求與生活習慣<br>提供最適合的解決方案。城安不只提供產品，更是您居家安全的守護者</p>
                             </div>
                             
                             <div class="feature-card">
-                                <h3>專業服務</h3>
-                                <p>我們擁有專業的輔具評估師和無障礙規劃師，提供個人化的評估與建議。從輔具選配到居家環境改善，我們提供全方位的解決方案</p>
+                                <h3>專業團隊與全方位服務</h3>
+                                <p>城安擁有具備專業認證的無障礙規劃團隊，並持續接受專業教育訓練，為客戶提供最新、最專業、最完整的照護服務<br><br>從個人化的輔具選配、居家環境評估<br>到空間改善工程城安提供一站式的全方位解決方案，讓每位使用者都能安心生活、自在行動</p>
                             </div>
                             
                             <div class="feature-card">
-                                <h3>雙北特約廠商</h3>
-                                <p>作為雙北地區特約廠商，我們提供優質的輔具產品與專業施工服務，所有產品均通過相關認證，並提供完整的售後服務與保固</p>
+                                <h3>政府特約與品質保證</h3>
+                                <p>城安為雙北地區政府特約輔具廠商，提供通過認證的優質輔具產品與專業施工服務<br><br>城安重視每一項細節，從產品選擇、施工品質到售後保固，皆有完整制度保障，讓每位客戶都能安心選購、放心使用</p>
                             </div>
-                            
-                            <div class="feature-card">
-                                <h3>服務理念</h3>
-                                <p>我們始終秉持「以人為本」的服務理念，深入瞭解每位客戶的需求與生活習慣，提供最適合的解決方案。我們不只是提供產品，更是您居家安全的守護者</p>
-                            </div>
-                            
-                            <div class="feature-card">
-                                <h3>專業認證</h3>
-                                <p>我們的團隊成員均具備相關專業認證，並持續接受教育訓練，確保能提供為客戶提供最新、最專業、最完整的照護服務</p>
-                            </div>
+
+    <div class="feature-card">
+        <div class="feature-content">
+            <h3>進口偵測設備</h3>
+        </div>
+        <div class="photo-carousel" id="carousel">
+            <div class="photo-container" id="photoContainer">
+                <div class="photo-slide">
+                    <img src="https://scontent.ftpe7-2.fna.fbcdn.net/v/t39.30808-6/503178789_1765014117701098_832407139211224398_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=eUxvKj5FJRcQ7kNvwEzlv2L&_nc_oc=AdmOAyCHLxjqEn8RAFF0cs3zBcmfHTYzBnOlsCSlNzQSAzp6kYrtMIrCQOBz8ZgfzEI&_nc_zt=23&_nc_ht=scontent.ftpe7-2.fna&_nc_gid=Rh7bZUctM1qv5dRbsQR0Dw&oh=00_AfLQXI35Sw4sPFFj4zrV86WPRtoZkEU2ODM82SiiKagFFg&oe=6844C015" class="photo-slide">
+                </div>
+                <div class="photo-slide">
+                    <img src="https://scontent.ftpe7-1.fna.fbcdn.net/v/t39.30808-6/503235547_1766278297574680_734457385573823673_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=RY82kzxOjYsQ7kNvwGHFhzl&_nc_oc=AdkweBVkPuAbYGH7kslMGQC1UabGD_OpDy_gOoJRNw5-g21w4FnTCHD-ZCy-rUSRGa8&_nc_zt=23&_nc_ht=scontent.ftpe7-1.fna&_nc_gid=phsArOlOcwitckiECBg9dw&oh=00_AfN0S9yxPFsOMKeJ1IxQsZCUEANngy4G03V9aiX237pJMA&oe=684738C3" class="photo-slide">
+                </div>
+                <div class="photo-slide">
+                <img src="https://scontent.ftpe7-4.fna.fbcdn.net/v/t39.30808-6/502614388_1765013821034461_863842054278404067_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=UWD5jZfFtksQ7kNvwFZJYYv&_nc_oc=AdlXAPdtfYptnyL-87SkhKhqHkiEbttkBT61XDQ9ethA1K1rpTU1tVJhyie40KazSvE&_nc_zt=23&_nc_ht=scontent.ftpe7-4.fna&_nc_gid=prKSFJ-6EUOsLj07ibaTBg&oh=00_AfJYyzyj_Tjzq5qYzTmeBOqc6HwQnYhIwU1mv3IQ7EDmew&oe=6844CF2B" class="photo-slide">
+                </div>
+            </div>
+            
+            <button class="nav-button prev" onclick="changeSlide(-1)">‹</button>
+            <button class="nav-button next" onclick="changeSlide(1)">›</button>
+            
+            <div class="dots-container">
+                <span class="dot active" onclick="goToSlide(0)"></span>
+                <span class="dot" onclick="goToSlide(1)"></span>
+                <span class="dot" onclick="goToSlide(2)"></span>
+            </div>
+        </div>
+
+        <div class="feature-content">
+            <p>德國進口壁體偵測機，不破壞水管，施工零風險</p>
+        </div>
+    </div>
                         </div>
                     </div>
                 </div>
@@ -1022,7 +1250,7 @@ document.head.appendChild(style);
 <div id="products" class="page">
   <section class="features">
     <div class="container">
-      <h2 class="section-title">我們的專業服務</h2>
+      <h2 class="section-title">城安的專業服務</h2>
       <div class="features-grid">
         <div class="feature-card">
           <img src="https://scontent.ftpe7-4.fna.fbcdn.net/v/t39.30808-6/502614388_1765013821034461_863842054278404067_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=UWD5jZfFtksQ7kNvwFZJYYv&_nc_oc=AdlXAPdtfYptnyL-87SkhKhqHkiEbttkBT61XDQ9ethA1K1rpTU1tVJhyie40KazSvE&_nc_zt=23&_nc_ht=scontent.ftpe7-4.fna&_nc_gid=prKSFJ-6EUOsLj07ibaTBg&oh=00_AfJYyzyj_Tjzq5qYzTmeBOqc6HwQnYhIwU1mv3IQ7EDmew&oe=6844CF2B" alt="社福馬桶與浴室設備" class="feature-image">
@@ -1241,4 +1469,96 @@ window.addEventListener('resize', function() {
         closeMenu();
     }
 });
+
+        let currentSlide = 0;
+        const totalSlides = 3;
+        const photoContainer = document.getElementById('photoContainer');
+        const dots = document.querySelectorAll('.dot');
+
+        // 切換照片函數
+        function changeSlide(direction) {
+            currentSlide += direction;
+            
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            } else if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            }
+            
+            updateCarousel();
+        }
+
+        // 直接跳到指定照片
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateCarousel();
+        }
+
+        // 更新輪播狀態
+        function updateCarousel() {
+            const translateX = -currentSlide * 100;
+            photoContainer.style.transform = `translateX(${translateX}%)`;
+            
+            // 更新指示點
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        // 自動輪播（可選）
+        function startAutoSlide() {
+            setInterval(() => {
+                changeSlide(1);
+            }, 4000); // 每4秒自動切換
+        }
+
+        // 觸控滑動支援
+        let startX = 0;
+        let startY = 0;
+        let isScrolling = false;
+
+        const carousel = document.getElementById('carousel');
+
+        carousel.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            isScrolling = false;
+        });
+
+        carousel.addEventListener('touchmove', (e) => {
+            if (!startX || !startY) return;
+
+            const currentX = e.touches[0].clientX;
+            const currentY = e.touches[0].clientY;
+            const diffX = startX - currentX;
+            const diffY = startY - currentY;
+
+            if (Math.abs(diffX) > Math.abs(diffY)) {
+                isScrolling = true;
+                e.preventDefault(); // 防止頁面滾動
+            }
+        });
+
+        carousel.addEventListener('touchend', (e) => {
+            if (!startX || !isScrolling) return;
+
+            const endX = e.changedTouches[0].clientX;
+            const diffX = startX - endX;
+
+            // 滑動距離閾值
+            if (Math.abs(diffX) > 50) {
+                if (diffX > 0) {
+                    changeSlide(1); // 左滑，下一張
+                } else {
+                    changeSlide(-1); // 右滑，上一張
+                }
+            }
+
+            startX = 0;
+            startY = 0;
+            isScrolling = false;
+        });
+
+        // 啟動自動輪播（註解掉如果不需要）
+        // startAutoSlide();
 </script>
