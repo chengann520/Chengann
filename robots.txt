@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://chengann520.github.io/Chengann/sitemap.xml
