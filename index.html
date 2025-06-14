@@ -367,7 +367,7 @@
             opacity: 1.0;
             margin-bottom: 0.5rem;
         }
-    /* 客戶評價 */
+/* 客戶評價 */
 /* 需要添加到您現有樣式中的部分 */
 
 /* 客戶評價頁面專用樣式 */
@@ -525,7 +525,6 @@
     margin-bottom: 1rem;
 }
 
-
 @keyframes float {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
     50% { transform: translateY(-20px) rotate(180deg); }
@@ -539,14 +538,19 @@
     
     .facebook-placeholder {
         padding: 2rem;
+        background: linear-gradient(135deg, #4267B2, #365899); /* 保持與電腦版相同 */
+        color: white; /* 確保文字顏色一致 */
     }
     
     .facebook-placeholder h4 {
         font-size: 1.3rem;
+        color: white; /* 保持與電腦版相同 */
     }
     
     .facebook-placeholder p {
         font-size: 1rem;
+        color: white; /* 保持與電腦版相同 */
+        opacity: 0.9; /* 保持與電腦版相同 */
     }
     
     .testimonials-grid {
@@ -557,12 +561,42 @@
         grid-template-columns: repeat(2, 1fr);
     }
     
-    .contact-title {
-        font-size: 2.2rem;
+    .stat-item {
+        background: white; /* 保持與電腦版相同 */
     }
     
-    .contact-subtitle {
-        font-size: 1.1rem;
+    .stat-number {
+        color: #3c62b0; /* 保持與電腦版相同 */
+    }
+    
+    .stat-label {
+        color: #000000; /* 保持與電腦版相同 */
+    }
+    
+    .testimonial {
+        background: #f8f9fa; /* 保持與電腦版相同 */
+        border-left: 5px solid #4267B2; /* 保持與電腦版相同 */
+    }
+    
+    .testimonial-text {
+        color: #2C3E50; /* 保持與電腦版相同 */
+    }
+    
+    .testimonial-author {
+        color: #4267B2; /* 保持與電腦版相同 */
+    }
+    
+    .stars {
+        color: #ffc107; /* 保持與電腦版相同 */
+    }
+    
+    .facebook-link {
+        background: linear-gradient(135deg, #ffffff, #ffffff); /* 保持與電腦版相同 */
+        color: #4267B2; /* 保持與電腦版相同 */
+    }
+    
+    .facebook-link:hover {
+        background: linear-gradient(135deg, #8FA8DB, #8FA8DB); /* 保持與電腦版相同 */
     }
 }
 
@@ -573,21 +607,59 @@
     
     .stat-item {
         padding: 1.5rem;
+        background: white; /* 保持與電腦版相同 */
     }
     
     .stat-number {
         font-size: 2rem;
+        color: #3c62b0; /* 保持與電腦版相同 */
+    }
+    
+    .stat-label {
+        color: #000000; /* 保持與電腦版相同 */
     }
     
     .testimonial {
         padding: 2rem;
+        background: #f8f9fa; /* 保持與電腦版相同 */
+        border-left: 5px solid #4267B2; /* 保持與電腦版相同 */
     }
     
-    .contact-title {
-        font-size: 1.8rem;
+    .testimonial-text {
+        color: #2C3E50; /* 保持與電腦版相同 */
+    }
+    
+    .testimonial-author {
+        color: #4267B2; /* 保持與電腦版相同 */
+    }
+    
+    .stars {
+        color: #ffc107; /* 保持與電腦版相同 */
+    }
+    
+    .facebook-placeholder {
+        background: linear-gradient(135deg, #4267B2, #365899); /* 保持與電腦版相同 */
+        color: white; /* 確保文字顏色一致 */
+    }
+    
+    .facebook-placeholder h4 {
+        color: white; /* 保持與電腦版相同 */
+    }
+    
+    .facebook-placeholder p {
+        color: white; /* 保持與電腦版相同 */
+        opacity: 0.9; /* 保持與電腦版相同 */
+    }
+    
+    .facebook-link {
+        background: linear-gradient(135deg, #ffffff, #ffffff); /* 保持與電腦版相同 */
+        color: #4267B2; /* 保持與電腦版相同 */
+    }
+    
+    .facebook-link:hover {
+        background: linear-gradient(135deg, #8FA8DB, #8FA8DB); /* 保持與電腦版相同 */
     }
 }
-客戶見證
         /* Branches Section */
         .branches-section {
             background: linear-gradient(135deg, rgba(164, 181, 229, 0.08) 0%, rgba(143, 168, 219, 0.05) 50%, #F8F9FA 100%);
@@ -1934,10 +2006,8 @@ document.head.appendChild(style);
             <div class="container">
                 <h2 class="section-title">客戶對城安的評價</h2>
                 <div class="features-grid">
-                    <div class="feature-card">
-                        
+                    <div class="feature-card">    
                         <div class="review-stats">
-
                             <div class="stat-item">
                                 <span class="stat-number">110+</span>
                                 <div class="stat-label">服務案例</div>
@@ -1947,7 +2017,6 @@ document.head.appendChild(style);
                                 <div class="stat-label">滿意度</div>
                             </div>
                         </div>
-                        
                         <div class="facebook-reviews">
                             <div class="facebook-placeholder">
                                 <h4> Facebook 客戶評價</h4>
