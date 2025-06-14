@@ -367,7 +367,227 @@
             opacity: 1.0;
             margin-bottom: 0.5rem;
         }
+    /* 客戶評價 */
+/* 需要添加到您現有樣式中的部分 */
 
+/* 客戶評價頁面專用樣式 */
+.credit-section {
+    background: linear-gradient(135deg, #F8F9FA 0%, #e9ecef 100%);
+    padding: 80px 0;
+    position: relative;
+}
+
+.credit-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="%23ffffff" opacity="0.1"/><circle cx="10" cy="50" r="0.5" fill="%23ffffff" opacity="0.1"/><circle cx="90" cy="30" r="0.5" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #6c757d;
+    margin-bottom: 4rem;
+    font-weight: 300;
+}
+
+/* Facebook 評價區塊樣式 */
+.facebook-reviews {
+    margin-top: 2rem;
+}
+
+.facebook-placeholder {
+    background: linear-gradient(135deg, #4267B2, #365899);
+    border-radius: 15px;
+    padding: 3rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(66, 103, 178, 0.3);
+}
+
+.facebook-placeholder h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.facebook-placeholder p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+/* 統計數據區塊 */
+.review-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.stat-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-3px);
+}
+
+.stat-number {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #3c62b0;
+    display: block;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: #000000;
+    margin-top: 0.5rem;
+}
+
+/* Facebook 連結按鈕 */
+.facebook-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #ffffff, #ffffff);
+    color: #4267B2;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(66, 103, 178, 0.3);
+}
+
+.facebook-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(66, 103, 178, 0.4);
+    background: linear-gradient(135deg, #8FA8DB, #8FA8DB);
+}
+
+/* 客戶見證區塊 */
+.testimonial-section {
+    background: white;
+    padding: 80px 0;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.testimonial {
+    background: #f8f9fa;
+    padding: 2.5rem;
+    border-radius: 15px;
+    border-left: 5px solid #4267B2;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.testimonial:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #2C3E50;
+}
+
+.testimonial-author {
+    font-weight: bold;
+    color: #4267B2;
+}
+
+.stars {
+    color: #ffc107;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+/* 手機響應式調整 */
+@media (max-width: 768px) {
+    .credit-section {
+        padding: 60px 0;
+    }
+    
+    .facebook-placeholder {
+        padding: 2rem;
+    }
+    
+    .facebook-placeholder h4 {
+        font-size: 1.3rem;
+    }
+    
+    .facebook-placeholder p {
+        font-size: 1rem;
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .review-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .contact-title {
+        font-size: 2.2rem;
+    }
+    
+    .contact-subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .review-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-item {
+        padding: 1.5rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .testimonial {
+        padding: 2rem;
+    }
+    
+    .contact-title {
+        font-size: 1.8rem;
+    }
+}
+客戶見證
         /* Branches Section */
         .branches-section {
             background: linear-gradient(135deg, rgba(164, 181, 229, 0.08) 0%, rgba(143, 168, 219, 0.05) 50%, #F8F9FA 100%);
@@ -748,7 +968,7 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 16px
+            font-size: 16px；
             font-weight: bold;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             border-radius: 15px;
@@ -883,6 +1103,226 @@
         margin-top: 1rem;
     }
 }
+/* 客戶評價 */
+/* 需要添加到您現有樣式中的部分 */
+
+/* 客戶評價頁面專用樣式 */
+.credit-section {
+    background: linear-gradient(135deg, #F8F9FA 0%, #e9ecef 100%);
+    padding: 80px 0;
+    position: relative;
+}
+
+.credit-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="%23ffffff" opacity="0.1"/><circle cx="10" cy="50" r="0.5" fill="%23ffffff" opacity="0.1"/><circle cx="90" cy="30" r="0.5" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #6c757d;
+    margin-bottom: 4rem;
+    font-weight: 300;
+}
+
+/* Facebook 評價區塊樣式 */
+.facebook-reviews {
+    margin-top: 2rem;
+}
+
+.facebook-placeholder {
+    background: linear-gradient(135deg, #4267B2, #365899);
+    border-radius: 15px;
+    padding: 3rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(66, 103, 178, 0.3);
+}
+
+.facebook-placeholder h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.facebook-placeholder p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+/* 統計數據區塊 */
+.review-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.stat-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-3px);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #4267B2;
+    display: block;
+}
+
+.stat-label {
+    color: #6c757d;
+    margin-top: 0.5rem;
+}
+
+/* Facebook 連結按鈕 */
+.facebook-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #4267B2, #365899);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(66, 103, 178, 0.3);
+}
+
+.facebook-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(66, 103, 178, 0.4);
+    background: linear-gradient(135deg, #365899, #2d4373);
+}
+
+/* 客戶見證區塊 */
+.testimonial-section {
+    background: white;
+    padding: 80px 0;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.testimonial {
+    background: #f8f9fa;
+    padding: 2.5rem;
+    border-radius: 15px;
+    border-left: 5px solid #4267B2;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.testimonial:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #2C3E50;
+}
+
+.testimonial-author {
+    font-weight: bold;
+    color: #4267B2;
+}
+
+.stars {
+    color: #ffc107;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+/* 手機響應式調整 */
+@media (max-width: 768px) {
+    .credit-section {
+        padding: 60px 0;
+    }
+    
+    .facebook-placeholder {
+        padding: 2rem;
+    }
+    
+    .facebook-placeholder h4 {
+        font-size: 1.3rem;
+    }
+    
+    .facebook-placeholder p {
+        font-size: 1rem;
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .review-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .contact-title {
+        font-size: 2.2rem;
+    }
+    
+    .contact-subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .review-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-item {
+        padding: 1.5rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .testimonial {
+        padding: 2rem;
+    }
+    
+    .contact-title {
+        font-size: 1.8rem;
+    }
+}
+客戶見證
     </style>
 </head>
  <script>
@@ -1145,6 +1585,8 @@ document.head.appendChild(style);
 </script>
 
 <body>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v23.0"></script>
     <header>
         <div class="container">
             <div class="header-content">
@@ -1158,6 +1600,7 @@ document.head.appendChild(style);
                         <li><a onclick="showPage('about')" id="nav-about">公司簡介</a></li>
                         <li><a onclick="showPage('products')" id="nav-products">產品服務</a></li>
                         <li><a onclick="showPage('branches')" id="nav-branches">分店資訊</a></li>
+                        <li><a onclick="showPage('credit')" id="nav-credit">客戶評價</a></li>
                     </ul>
                 </nav>
             </div>
@@ -1485,6 +1928,85 @@ document.head.appendChild(style);
         </div>     
     </section>
     </div>
+    <!-- 客戶評價 -->
+    <div id="credit" class="page">
+        <section class="credit-section">
+            <div class="container">
+                <h2 class="section-title">客戶對城安的評價</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        
+                        <div class="review-stats">
+
+                            <div class="stat-item">
+                                <span class="stat-number">110+</span>
+                                <div class="stat-label">服務案例</div>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">100%</span>
+                                <div class="stat-label">滿意度</div>
+                            </div>
+                        </div>
+                        
+                        <div class="facebook-reviews">
+                            <div class="facebook-placeholder">
+                                <h4> Facebook 客戶評價</h4>
+                                <p>查看來自真實客戶的評價與推薦<br>了解我們的專業服務品質</p>
+                                <a href="https://www.facebook.com/profile.php?id=61559277592315&sk=reviews&locale=zh_TW" 
+                                   target="_blank" 
+                                   class="facebook-link">
+                                    前往 Facebook 查看評價
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 客戶見證 -->
+        <section class="testimonial-section">
+            <div class="container">
+                <h2 class="section-title">客戶見證</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"城安的專業評估師非常細心，為我們家長輩量身規劃了完整的居家安全改善方案。施工品質優良，服務態度也很親切。"</p>
+                        <div class="testimonial-author">— 陳女士</div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"從諮詢到完工都非常專業，輔具選擇建議很實用，讓爸媽的生活品質大幅提升。真的很推薦城安的服務！"</p>
+                        <div class="testimonial-author">— 李先生</div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"價格合理，服務完整，重點是真的很用心在了解我們的需求。現在家裡變得更安全舒適了。"</p>
+                        <div class="testimonial-author">— 王太太</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="contact">
+            <div class="container">
+                <h2 class="section-title" style="color: rgb(255, 255, 255);">聯絡我們</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem; color: white; text-align: center;">準備為家人打造更安全舒適的生活環境嗎？城安的專業團隊隨時為您服務</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h4><a href="tel:0906828969" style="color: rgb(255, 255, 255); text-decoration: none;">📞 聯絡電話</a></h4>
+                        <p><a href="tel:0906828969" style="color: rgb(255, 255, 255); text-decoration: none;">0906-828-969</a><br>週一至週五 09:00-18:00</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4><a href="https://line.me/ti/p/SzjNVVDE9y" target="_blank" style="color: rgb(255, 255, 255); text-decoration: none;">💻 線上諮詢</a></h4>
+                        <p><a href="https://line.me/ti/p/SzjNVVDE9y" target="_blank" style="color: rgb(255, 255, 255); text-decoration: none;">專業評估師為您解答<br>輔具規劃評估服務</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 <script>
 function showPage(pageId) {
     // 隱藏所有頁面
@@ -1646,4 +2168,5 @@ window.addEventListener('resize', function() {
 
         // 啟動自動輪播（註解掉如果不需要）
         // startAutoSlide();
+
 </script>
