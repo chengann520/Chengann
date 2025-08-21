@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 首頁 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- 關於我們 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/about</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 服務項目 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/services</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 浴室改造服務 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/services/bathroom</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 扶手安裝服務 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/services/handrails</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 無障礙通道服務 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/services/accessibility</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 專業評估服務 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/services/assessment</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 產品展示 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/products</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 輔具產品 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/products/aids</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 浴室設備 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/products/bathroom-equipment</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 成功案例 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/cases</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 服務據點 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/locations</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 三重據點 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/locations/sanchong</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- 萬華據點 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/locations/wanhua</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- 大安據點 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/locations/daan</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- 板橋據點 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/locations/banqiao</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- 中和據點 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/locations/zhonghe</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- 新店據點 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/locations/xindian</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- 新莊據點 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/locations/xinzhuang</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- 聯絡我們 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/contact</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 免費評估 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/free-assessment</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 專業認證 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/certifications</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- 施工保證 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/warranty</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- 常見問題 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/faq</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 最新消息 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/news</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 政府補助資訊 -->
+  <url>
+    <loc>https://chengann520.github.io/Chengann/subsidies</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>
