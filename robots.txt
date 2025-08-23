@@ -1,3 +1,11 @@
-Sitemap: https://chengann520.github.io/Chengann/sitemap.xml
+# robots.txt for https://chengann520.github.io/Chengann/
+
+# Allow all web crawlers to access all content
 User-agent: *
 Disallow:
+
+# Sitemap location
+Sitemap: https://chengann520.github.io/Chengann/sitemap.xml
+
+# Optional: Crawl delay (uncomment if needed)
+# Crawl-delay: 1
