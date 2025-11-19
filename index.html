@@ -487,7 +487,9 @@
         <section class="credit-section">
             <div class="container">
                 <h2 class="section-title">客戶對城安的評價</h2>
-                <div class="features-grid">
+
+                <!-- 統計數據 -->
+                <div class="features-grid" style="margin-bottom: 3rem;">
                     <div class="feature-card">
                         <div class="review-stats">
                             <div class="stat-item">
@@ -499,32 +501,41 @@
                                 <div class="stat-label">滿意度</div>
                             </div>
                         </div>
-                        <div class="facebook-reviews"
-                            style="background: white; padding: 1rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                            <div style="text-align: center; margin-bottom: 1rem;">
-                                <h4>Facebook 粉絲專頁</h4>
-                                <p style="font-size: 1.2rem; color: #666;">追蹤我們的最新動態與客戶評價</p>
-                            </div>
-                            <div style="display: flex; justify-content: center;">
-                                <iframe
-                                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61559277592315&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
-                                    width="500" height="600" style="border:none;overflow:hidden; max-width: 100%;"
-                                    scrolling="no" frameborder="0" allowfullscreen="true"
-                                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-                                </iframe>
-                            </div>
-                            <div style="text-align: center; margin-top: 1rem;">
-                                <a href="https://www.facebook.com/profile.php?id=61559277592315&sk=reviews&locale=zh_TW"
-                                    target="_blank" class="contact-btn"
-                                    style="display: inline-block; width: auto; padding: 0.5rem 1.5rem;">
-                                    前往 Facebook 撰寫/查看評價
-                                </a>
-                            </div>
+                    </div>
+                </div>
+
+                <!-- Facebook 評價區塊 -->
+                <div class="facebook-reviews-wrapper">
+                    <!-- 獨立的標題區塊 -->
+                    <div class="facebook-header"
+                        style="background: white; padding: 1.5rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 1.5rem; text-align: center; border-top: 4px solid #4267B2;">
+                        <h4 style="margin-bottom: 0.5rem; color: #4267B2; font-size: 1.5rem;">Facebook 粉絲專頁</h4>
+                        <p style="font-size: 1.2rem; color: #666; margin: 0;">追蹤我們的最新動態與客戶評價</p>
+                    </div>
+
+                    <!-- 內容區塊 -->
+                    <div class="facebook-content"
+                        style="background: white; padding: 1rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <div style="display: flex; justify-content: center;">
+                            <iframe
+                                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61559277592315&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                                width="500" height="600" style="border:none;overflow:hidden; max-width: 100%;"
+                                scrolling="no" frameborder="0" allowfullscreen="true"
+                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                            </iframe>
+                        </div>
+                        <div style="text-align: center; margin-top: 1rem;">
+                            <a href="https://www.facebook.com/profile.php?id=61559277592315&sk=reviews&locale=zh_TW"
+                                target="_blank" class="contact-btn"
+                                style="display: inline-block; width: auto; padding: 1.0rem 10.0rem;">
+                                前往 Facebook 撰寫/查看評價
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
 
         <!-- 客戶見證 -->
         <section class="testimonial-section">
