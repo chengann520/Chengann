@@ -73,7 +73,7 @@ nav ul {
 nav a {
     color: white;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     transition: all 0.3s ease;
     padding: 0.5rem 1rem;
     border-radius: 5px;
@@ -377,7 +377,7 @@ nav a.active {
 }
 
 .facebook-placeholder p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     opacity: 0.9;
     margin-bottom: 2rem;
     color: white;
@@ -412,7 +412,7 @@ nav a.active {
 }
 
 .stat-label {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #000000;
     margin-top: 0.5rem;
 }
@@ -427,7 +427,7 @@ nav a.active {
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(66, 103, 178, 0.3);
 }
@@ -467,7 +467,7 @@ nav a.active {
 .testimonial-text {
     font-style: italic;
     margin-bottom: 1.5rem;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     line-height: 1.7;
     color: #2C3E50;
 }
@@ -720,7 +720,7 @@ html {
 }
 
 .feature-content p {
-    font-size: 16px;
+    font-size: 1.2rem;
     line-height: 1.4rem;
     color: #2c3e50ee;
     opacity: 1.0;
@@ -775,7 +775,7 @@ html {
     display: none;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 1.2rem;
     color: #333;
     transition: all 0.3s ease;
     z-index: 10;
@@ -963,7 +963,7 @@ html {
     }
 
     .feature-content p {
-        font-size: 16px;
+        font-size: 1.2rem;
     }
 
     /* 觸控滑動支援 */
@@ -999,7 +999,7 @@ html {
     }
 
     .facebook-placeholder p {
-        font-size: 1rem;
+        font-size: 1.2rem;
         color: white;
         opacity: 0.9;
     }
@@ -1066,7 +1066,7 @@ html {
 
     .cta-button {
         padding: 0.8rem 2rem;
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 
     .feature-card,
