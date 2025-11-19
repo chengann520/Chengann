@@ -5,19 +5,19 @@ function showPage(pageId) {
     pages.forEach(page => {
         page.classList.remove('active');
     });
-    
+
     // 顯示指定頁面
     const targetPage = document.getElementById(pageId);
     if (targetPage) {
         targetPage.classList.add('active');
     }
-    
+
     // 更新導航狀態
     updateNavigation(pageId);
-    
+
     // 關閉移動端菜單
     closeMenu();
-    
+
     // 滾動到頂部
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -29,7 +29,7 @@ function updateNavigation(activePageId) {
     navItems.forEach(item => {
         item.classList.remove('active');
     });
-    
+
     // 為對應的導航項目添加active狀態
     const activeNavItem = document.getElementById(`nav-${activePageId}`);
     if (activeNavItem) {
@@ -41,9 +41,9 @@ function updateNavigation(activePageId) {
 function toggleMenu() {
     const navMenu = document.getElementById('nav-menu');
     const menuIcon = document.getElementById('menu-icon');
-    
+
     navMenu.classList.toggle('show');
-    
+
     if (navMenu.classList.contains('show')) {
         menuIcon.textContent = '✕';
     } else {
@@ -55,7 +55,7 @@ function toggleMenu() {
 function closeMenu() {
     const navMenu = document.getElementById('nav-menu');
     const menuIcon = document.getElementById('menu-icon');
-    
+
     if (navMenu) {
         navMenu.classList.remove('show');
     }
@@ -68,7 +68,7 @@ function closeMenu() {
 function scrollToElement(elementId) {
     const element = document.getElementById(elementId);
     if (element) {
-        element.scrollIntoView({ 
+        element.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
         });
@@ -116,9 +116,9 @@ function showMessage(message, type = 'success') {
         z-index: 10000;
         animation: slideInRight 0.3s ease;
     `;
-    
+
     document.body.appendChild(messageEl);
-    
+
     setTimeout(() => {
         messageEl.style.animation = 'slideOutRight 0.3s ease';
         setTimeout(() => {
@@ -135,7 +135,7 @@ const observerOptions = {
     rootMargin: '0px 0px -50px 0px'
 };
 
-const observer = new IntersectionObserver(function(entries) {
+const observer = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
@@ -153,9 +153,9 @@ let dots;
 function initCarousel() {
     photoContainer = document.getElementById('photoContainer');
     dots = document.querySelectorAll('.dot');
-    
+
     if (!photoContainer || !dots.length) return;
-    
+
     // 觸控滑動支援
     const carousel = document.getElementById('carousel');
     if (carousel) {
@@ -208,13 +208,13 @@ function initCarousel() {
 // 切換照片函數
 function changeSlide(direction) {
     currentSlide += direction;
-    
+
     if (currentSlide >= totalSlides) {
         currentSlide = 0;
     } else if (currentSlide < 0) {
         currentSlide = totalSlides - 1;
     }
-    
+
     updateCarousel();
 }
 
@@ -229,7 +229,7 @@ function updateCarousel() {
     if (!photoContainer) return;
     const translateX = -currentSlide * 100;
     photoContainer.style.transform = `translateX(${translateX}%)`;
-    
+
     // 更新指示點
     if (dots) {
         dots.forEach((dot, index) => {
@@ -239,58 +239,58 @@ function updateCarousel() {
 }
 
 // 頁面載入完成後的初始化
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // 確保首頁為默認顯示頁面
     showPage('home');
-    
+
     // 初始化輪播圖
     initCarousel();
-    
+
     // 為所有CTA按鈕添加點擊事件
     const ctaButtons = document.querySelectorAll('.cta-button');
     ctaButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             showPage('contact');
         });
     });
-    
+
     // 為移動端菜單項目添加點擊關閉功能
     const navLinks = document.querySelectorAll('nav a');
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function () {
             // 延遲關閉菜單，確保頁面切換動畫完成
             setTimeout(() => {
                 closeMenu();
             }, 100);
         });
     });
-    
+
     // 點擊頁面其他地方關閉移動端菜單
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
         const navMenu = document.getElementById('nav-menu');
         const menuToggle = document.querySelector('.menu-toggle');
         const nav = document.querySelector('nav');
-        
+
         // 如果點擊的不是菜單相關元素，則關閉菜單
         if (nav && !nav.contains(event.target) && menuToggle && !menuToggle.contains(event.target)) {
             closeMenu();
         }
     });
-    
+
     // 監聽窗口大小變化
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
         // 如果窗口變大，關閉移動端菜單
         if (window.innerWidth > 768) {
             closeMenu();
         }
     });
-    
+
     // 添加滾動效果
     let lastScrollTop = 0;
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         const header = document.querySelector('header');
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
+
         // 向下滾動時添加陰影效果
         if (header) {
             if (scrollTop > 50) {
@@ -299,7 +299,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 header.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
             }
         }
-        
+
         lastScrollTop = scrollTop;
     });
 
@@ -329,12 +329,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // 鍵盤導航支持
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', function (event) {
     // ESC鍵關閉移動端菜單
     if (event.key === 'Escape') {
         closeMenu();
     }
-    
+
     // Enter鍵激活聚焦的按鈕
     if (event.key === 'Enter' && event.target.tagName === 'BUTTON') {
         event.target.click();
