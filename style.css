@@ -1,3 +1,6 @@
+/* Import Google Fonts for Better Typography */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
+
 /* Global Styles */
 * {
     margin: 0;
@@ -6,30 +9,34 @@
 }
 
 body {
-    font-family: 'Georgia', serif;
-    line-height: 1.6;
+    font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.7;
     color: #2C3E50;
     background: linear-gradient(135deg, #F8F9FA 0%, #FFFFFF 100%);
-    padding-top: 100px;
+    padding-top: 90px;
+    overflow-x: hidden;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
 }
 
-/* Header - 以 #8FA8DB 為中心的小跨距漸層 */
+/* Header - 保持原本配色,優化視覺效果 */
 header {
     background: linear-gradient(135deg, #7A9BD1 0%, #8FA8DB 50%, #A4B5E5 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     color: white;
-    padding: 1rem 0;
+    padding: 1.1rem 0;
     box-shadow: 0 4px 20px rgba(143, 168, 219, 0.3);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .header-content {
@@ -40,50 +47,76 @@ header {
 }
 
 .logo {
-    font-size: 2.5rem;
-    font-weight: bold;
+    font-size: 1.85rem;
+    font-weight: 900;
     color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 3px 6px rgba(0, 0, 0, 0.25);
     cursor: pointer;
+    letter-spacing: -0.3px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo:hover {
+    transform: translateY(-2px);
+    text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Mobile Menu Toggle */
 .menu-toggle {
     display: none;
-    background: none;
-    border: none;
+    background: rgba(255, 255, 255, 0.12);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     color: white;
     font-size: 1.5rem;
     cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    padding: 0.6rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
 .menu-toggle:hover {
-    background: rgba(164, 181, 229, 0.3);
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 0.8rem;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0.65rem 1.2rem;
+    border-radius: 8px;
     cursor: pointer;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 80%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.8);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+nav a:hover::after,
+nav a.active::after {
+    transform: translateX(-50%) scaleX(1);
 }
 
 nav a:hover,
 nav a.active {
-    background: rgba(123, 104, 179, 0.4);
-    /* 紫色點綴 */
+    background: rgba(123, 104, 179, 0.35);
     transform: translateY(-2px);
 }
 
@@ -129,9 +162,11 @@ nav a.active {
 
 .hero h1 {
     font-size: 3.5rem;
+    font-weight: 900;
     margin-bottom: 1rem;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
     animation: fadeInUp 1s ease-out;
+    letter-spacing: -0.5px;
 }
 
 .hero p {
@@ -139,6 +174,7 @@ nav a.active {
     margin-bottom: 2rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     animation: fadeInUp 1s ease-out 0.3s both;
+    line-height: 1.8;
 }
 
 .cta-button {
@@ -160,9 +196,7 @@ nav a.active {
 .cta-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(123, 104, 179, 0.5);
-    /* 紫色陰影點綴 */
     background: linear-gradient(135deg, #7B68B3 0%, #8FA8DB 50%, #A4B5E5 100%);
-    /* 添加紫色漸層 */
 }
 
 /* Features Section */
@@ -174,9 +208,11 @@ nav a.active {
 .section-title {
     text-align: center;
     font-size: 2.5rem;
+    font-weight: 800;
     color: #0D2947;
     margin-bottom: 3rem;
     position: relative;
+    letter-spacing: -0.5px;
 }
 
 .section-title::after {
@@ -188,7 +224,6 @@ nav a.active {
     width: 80px;
     height: 4px;
     background: linear-gradient(135deg, #7A9BD1 0%, #7B68B3 30%, #8FA8DB 70%, #A4B5E5 100%);
-    /* 加入紫色點綴 */
     border-radius: 2px;
 }
 
@@ -215,7 +250,6 @@ nav a.active {
     box-shadow: 0 20px 40px rgba(143, 168, 219, 0.2);
     background: linear-gradient(135deg, #FFFFFF 0%, rgba(143, 168, 219, 0.1) 100%);
     border-color: #7B68B3;
-    /* 紫色邊框點綴 */
 }
 
 .feature-icon {
@@ -227,16 +261,15 @@ nav a.active {
 
 .feature-card h3 {
     font-size: 1.5rem;
+    font-weight: 700;
     margin-bottom: 1rem;
     color: #0D2947;
 }
 
 .feature-card p {
     color: #0D2947;
-    /* 改成深藍色 */
-    line-height: 1.6;
+    line-height: 1.7;
     opacity: 1;
-    /* 移除透明度讓顏色更深 */
 }
 
 /* 產品圖片樣式 */
@@ -253,7 +286,6 @@ nav a.active {
 .feature-card:hover .feature-image {
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(123, 104, 179, 0.25);
-    /* 紫色陰影點綴 */
 }
 
 /* Trust Section */
@@ -288,7 +320,6 @@ nav a.active {
 .trust-badge:hover {
     transform: scale(1.05);
     border-top-color: #7B68B3;
-    /* 紫色點綴 */
 }
 
 /* About Section */
@@ -309,7 +340,8 @@ nav a.active {
     margin-bottom: 1rem;
     margin-top: 2rem;
     color: #0D2947;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 .about-text h3:nth-of-type(1) {
@@ -318,11 +350,10 @@ nav a.active {
 
 .about-text h3:nth-of-type(2) {
     color: #7B68B3;
-    /* 第二個標題使用紫色點綴 */
 }
 
 .about-text p {
-    line-height: 1.6;
+    line-height: 1.7;
     color: #2c3e50ee;
     opacity: 1.0;
     margin-bottom: 0.5rem;
@@ -467,7 +498,7 @@ nav a.active {
 .testimonial-text {
     font-style: italic;
     margin-bottom: 1.5rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 1.7;
     color: #2C3E50;
 }
@@ -522,20 +553,20 @@ nav a.active {
     transform: translateY(-5px);
     box-shadow: 0 20px 40px rgba(143, 168, 219, 0.2);
     border-top-color: #7B68B3;
-    /* 紫色點綴 */
 }
 
 .branch-card h3 {
     color: #0D2947;
     margin-bottom: 1.5rem;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    font-weight: 700;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid #A4B5E5;
 }
 
 .branch-info p {
     margin-bottom: 0.8rem;
-    line-height: 1.6;
+    line-height: 1.7;
     color: #2C3E50;
     opacity: 0.8;
 }
@@ -565,9 +596,7 @@ nav a.active {
 .contact-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(123, 104, 179, 0.4);
-    /* 紫色陰影點綴 */
     background: linear-gradient(135deg, #7B68B3 0%, #8FA8DB 100%);
-    /* 加入紫色漸層 */
 }
 
 /* Contact Section */
@@ -598,7 +627,6 @@ nav a.active {
     background: rgba(255, 255, 255, 0.25);
     transform: translateY(-5px);
     border-left-color: #7B68B3;
-    /* 紫色邊框點綴 */
 }
 
 .contact-item h4 {
@@ -641,7 +669,7 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Additional utility classes - 更新為新的色彩系統與紫色點綴 */
+/* Additional utility classes */
 .text-primary {
     color: #0D2947;
 }
@@ -687,16 +715,6 @@ html {
 }
 
 /* Feature Card Updates */
-.feature-card {
-    text-align: center;
-    padding: 1.5rem;
-    background: linear-gradient(135deg, #FFFFFF 0%, rgba(164, 181, 229, 0.05) 100%);
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(143, 168, 219, 0.1);
-    transition: all 0.3s ease;
-    border: 2px solid #A4B5E5;
-}
-
 .feature-content {
     padding: 5px;
     text-align: center;
@@ -720,8 +738,8 @@ html {
 }
 
 .feature-content p {
-    font-size: 1.2rem;
-    line-height: 1.4rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
     color: #2c3e50ee;
     opacity: 1.0;
     margin-bottom: 0.5rem;
@@ -732,7 +750,6 @@ html {
     position: relative;
     width: 100%;
     aspect-ratio: 4/3;
-    /* 保持4:3比例 */
     overflow: hidden;
     padding: 5px;
     box-sizing: border-box;
@@ -847,7 +864,6 @@ html {
         font-size: 1.2rem;
     }
 
-    /* Mobile Navigation */
     .menu-toggle {
         display: block;
     }
@@ -890,164 +906,33 @@ html {
 
     nav ul li a:hover {
         background: rgba(123, 104, 179, 0.4);
-        /* 紫色點綴 */
         transform: none;
     }
 
-    .header-content {
-        text-align: left;
-        justify-content: space-between;
-    }
-
-    .trust-badges {
-        gap: 1rem;
-    }
-
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .branches-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .branch-buttons {
-        flex-direction: column;
-    }
-
-    .contact-btn {
-        flex: none;
-    }
-
     .logo {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
 
     .section-title {
         font-size: 2rem;
     }
 
-    .features-grid {
+    .features-grid,
+    .testimonials-grid,
+    .branches-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
 
-    .contact-info {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .feature-card {
-        margin: 10px;
-        max-width: 100%;
-    }
-
-    .photo-carousel {
-        height: 200px;
-    }
-
     .nav-button {
+        display: flex;
         width: 35px;
         height: 35px;
         font-size: 20px;
     }
 
-    .feature-content {
-        padding: 20px;
-    }
-
-    .feature-content h3 {
-        font-size: 20px;
-    }
-
-    .feature-content p {
-        font-size: 1.2rem;
-    }
-
-    /* 觸控滑動支援 */
-    .photo-carousel {
-        touch-action: pan-y pinch-zoom;
-    }
-
-    .video-container {
-        margin-top: 1.5rem;
-    }
-
-    .video-wrapper {
-        border-radius: 10px;
-    }
-
-    .video-wrapper iframe {
-        border-radius: 10px;
-    }
-
-    .credit-section {
-        padding: 60px 0;
-    }
-
-    .facebook-placeholder {
-        padding: 2rem;
-        background: linear-gradient(135deg, #4267B2, #365899);
-        color: white;
-    }
-
-    .facebook-placeholder h4 {
-        font-size: 1.3rem;
-        color: white;
-    }
-
-    .facebook-placeholder p {
-        font-size: 1.2rem;
-        color: white;
-        opacity: 0.9;
-    }
-
-    .testimonials-grid {
+    .contact-info {
         grid-template-columns: 1fr;
-    }
-
-    .review-stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .stat-item {
-        background: white;
-    }
-
-    .stat-number {
-        color: #3c62b0;
-    }
-
-    .stat-label {
-        color: #000000;
-    }
-
-    .testimonial {
-        background: #f8f9fa;
-        border-left: 5px solid #4267B2;
-    }
-
-    .testimonial-text {
-        color: #2C3E50;
-    }
-
-    .testimonial-author {
-        color: #4267B2;
-    }
-
-    .stars {
-        color: #ffc107;
-    }
-
-    .facebook-link {
-        background: linear-gradient(135deg, #ffffff, #ffffff);
-        color: #4267B2;
-    }
-
-    .facebook-link:hover {
-        background: linear-gradient(135deg, #8FA8DB, #8FA8DB);
     }
 }
 
@@ -1066,7 +951,11 @@ html {
 
     .cta-button {
         padding: 0.8rem 2rem;
-        font-size: 1.2rem;
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
     }
 
     .feature-card,
@@ -1074,70 +963,7 @@ html {
         padding: 2rem;
     }
 
-    .section-title {
-        font-size: 1.8rem;
-    }
-
-    .video-container {
-        margin-top: 1rem;
-    }
-
     .review-stats {
         grid-template-columns: 1fr;
-    }
-
-    .stat-item {
-        padding: 1.5rem;
-        background: white;
-    }
-
-    .stat-number {
-        font-size: 2rem;
-        color: #3c62b0;
-    }
-
-    .stat-label {
-        color: #000000;
-    }
-
-    .testimonial {
-        padding: 2rem;
-        background: #f8f9fa;
-        border-left: 5px solid #4267B2;
-    }
-
-    .testimonial-text {
-        color: #2C3E50;
-    }
-
-    .testimonial-author {
-        color: #4267B2;
-    }
-
-    .stars {
-        color: #ffc107;
-    }
-
-    .facebook-placeholder {
-        background: linear-gradient(135deg, #4267B2, #365899);
-        color: white;
-    }
-
-    .facebook-placeholder h4 {
-        color: white;
-    }
-
-    .facebook-placeholder p {
-        color: white;
-        opacity: 0.9;
-    }
-
-    .facebook-link {
-        background: linear-gradient(135deg, #ffffff, #ffffff);
-        color: #4267B2;
-    }
-
-    .facebook-link:hover {
-        background: linear-gradient(135deg, #8FA8DB, #8FA8DB);
     }
 }
