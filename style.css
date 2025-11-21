@@ -926,10 +926,64 @@ html {
     padding: 0.5rem 5.0rem;
 }
 
+/* Features Grid - Adjusted for mobile */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+/* Branches Grid - Adjusted for mobile */
+.branches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+/* Contact Info Grid */
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .nav-button {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+}
+
 /* Contact Section Global */
 .contact-section-global {
     background: linear-gradient(135deg, #7A9BD1 0%, #8FA8DB 50%, #A4B5E5 100%);
     color: white;
     padding: 4rem 0;
     text-align: center;
+    width: 100%;
 }
