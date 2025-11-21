@@ -1,3 +1,86 @@
+// 分店資料
+const branches = [
+    {
+        name: "三重總店 - 新北市",
+        address: "新北市三重區成功路41巷29號1樓",
+        phone: "0906-828-969",
+        hours: "週一至週五：09:00-18:00",
+        weekend: "週末：接受電話諮詢",
+        govLink: "https://newrepat.sfaa.gov.tw/home/pavs/vendor/detail/4bc1e2b4925683da01928f33b742721d"
+    },
+    {
+        name: "萬華店 - 台北市",
+        address: "台北市萬華區漢口街2段56號6樓之2",
+        phone: "0906-828-969",
+        hours: "週一至週五：09:00-18:00",
+        weekend: "週末：接受電話諮詢",
+        govLink: "https://newrepat.sfaa.gov.tw/home/pavs/vendor/detail/4bc1e2b4925683da01928f18485b6b3c"
+    },
+    {
+        name: "大安店 - 台北市",
+        address: "台北市大安區仁愛路三段26號5樓",
+        phone: "0906-828-969",
+        hours: "週一至週五：09:00-18:00",
+        weekend: "週末：接受電話諮詢",
+        govLink: "https://newrepat.sfaa.gov.tw/home/pavs/vendor/detail/4bc1e2b4932907af01966193c90c0e46"
+    },
+    {
+        name: "板橋店 - 新北市",
+        address: "新北市板橋區三民路2段23號14樓",
+        phone: "0906-828-969",
+        hours: "週一至週五：09:00-18:00",
+        weekend: "週末：接受電話諮詢",
+        govLink: "https://newrepat.sfaa.gov.tw/home/pavs/vendor/detail/4bc1e2b4925683da0192935af3984d82"
+    },
+    {
+        name: "中和店 - 新北市",
+        address: "新北市中和區中原二街28號18樓",
+        phone: "0906-828-969",
+        hours: "週一至週五：09:00-18:00",
+        weekend: "週末：接受電話諮詢",
+        govLink: "https://newrepat.sfaa.gov.tw/home/pavs/vendor/detail/4bc1e2b4925683da01928f0f674a69a8"
+    },
+    {
+        name: "新店店 - 新北市",
+        address: "新北市新店區安興路127之3號1樓",
+        phone: "0906-828-969",
+        hours: "週一至週五：09:00-18:00",
+        weekend: "週末：接受電話諮詢",
+        govLink: "https://newrepat.sfaa.gov.tw/home/pavs/vendor/detail/4bc1e2b4925683da01928f1ddb8b6c52"
+    },
+    {
+        name: "新莊店 - 新北市",
+        address: "新北市新莊區富貴路492號6樓",
+        phone: "0906-828-969",
+        hours: "週一至週五：09:00-18:00",
+        weekend: "週末：接受電話諮詢",
+        govLink: "https://newrepat.sfaa.gov.tw/home/pavs/vendor/detail/4bc1e2b4932907af0196618fef720cb2"
+    }
+];
+
+// 渲染分店資訊
+function renderBranches() {
+    const container = document.getElementById('branches-container');
+    if (!container) return;
+
+    container.innerHTML = branches.map(branch => `
+        <div class="branch-card">
+            <h3>${branch.name}</h3>
+            <div class="branch-info">
+                <p><strong>📍 地址：</strong>${branch.address}</p>
+                <p><strong>📞 電話：</strong>${branch.phone}</p>
+                <p><strong>🕒 營業時間：</strong></p>
+                <p>${branch.hours}</p>
+                <p>${branch.weekend}</p>
+                <div class="branch-buttons">
+                    <a href="tel:${branch.phone.replace(/-/g, '')}" class="contact-btn">📞 立即撥打</a>
+                    <a href="${branch.govLink}" target="_blank" class="contact-btn">🏛️ 政府登記</a>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
 // 頁面切換功能
 function showPage(pageId) {
     // 隱藏所有頁面
@@ -10,6 +93,10 @@ function showPage(pageId) {
     const targetPage = document.getElementById(pageId);
     if (targetPage) {
         targetPage.classList.add('active');
+        // 更新 URL hash，但不觸發 hashchange 事件（避免無限迴圈）
+        if (window.location.hash.substring(1) !== pageId) {
+            history.pushState(null, null, `#${pageId}`);
+        }
     }
 
     // 更新導航狀態
@@ -20,6 +107,16 @@ function showPage(pageId) {
 
     // 滾動到頂部
     window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// 處理 Hash 變更
+function handleHashChange() {
+    const hash = window.location.hash.substring(1); // 移除 #
+    if (hash) {
+        showPage(hash);
+    } else {
+        showPage('home'); // 默認首頁
+    }
 }
 
 // 更新導航狀態
@@ -240,8 +337,14 @@ function updateCarousel() {
 
 // 頁面載入完成後的初始化
 document.addEventListener('DOMContentLoaded', function () {
-    // 確保首頁為默認顯示頁面
-    showPage('home');
+    // 渲染分店資訊
+    renderBranches();
+
+    // 處理初始 Hash
+    handleHashChange();
+
+    // 監聽 Hash 變更
+    window.addEventListener('hashchange', handleHashChange);
 
     // 初始化輪播圖
     initCarousel();
@@ -304,8 +407,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // 當頁面載入後觀察所有需要動畫的元素
-    const animateElements = document.querySelectorAll('.feature-card, .branch-card, .contact-item');
-    animateElements.forEach(el => {
+    // 注意：branch-card 是動態生成的，所以這裡可能選不到，需要改進
+    // 解決方案：使用 MutationObserver 或在 renderBranches 後觀察
+    const staticAnimateElements = document.querySelectorAll('.feature-card, .contact-item');
+    staticAnimateElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+
+    // 觀察動態生成的 branch-card
+    const branchCards = document.querySelectorAll('.branch-card');
+    branchCards.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
