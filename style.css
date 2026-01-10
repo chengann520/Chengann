@@ -13,7 +13,7 @@ body {
     line-height: 1.7;
     color: #2C3E50;
     background: linear-gradient(135deg, #F8F9FA 0%, #FFFFFF 100%);
-    padding-top: 90px;
+    padding-top: 70px;
     overflow-x: hidden;
 }
 
@@ -43,7 +43,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    /* 不換行，確保選單與店名在同一行 */
 }
 
 .logo {
@@ -71,7 +72,7 @@ header {
     cursor: pointer;
     padding: 0.6rem;
     border-radius: 8px;
-    transition: all 0.3s ease;
+    transition: all 0.1s ease;
 }
 
 .menu-toggle:hover {
@@ -1340,8 +1341,13 @@ html {
     margin-top: 2rem;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
+/* 響應式調整 */
+@media (max-width: 1024px) {
+    header .container {
+        padding: 0 0 0 20px;
+        /* 右側 padding 為 0，讓按鈕完全貼邊 */
+    }
+
     .container {
         padding: 0 16px;
     }
@@ -1368,31 +1374,54 @@ html {
         font-size: 1.2rem;
     }
 
-    /* Mobile Menu Styles */
+    /* 移動端菜單樣式 - 側邊欄模式 */
     .menu-toggle {
         display: block;
+        margin-right: 0;
+        /* 移除右側邊距 */
+        z-index: 1002;
+        /* 確保切換按鈕在側邊欄之上 */
     }
 
     nav ul {
-        display: none;
+        display: flex;
         flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(122, 155, 209, 0.95);
-        padding: 1rem 0;
-        backdrop-filter: blur(10px);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 280px;
+        height: 100vh;
+        background: linear-gradient(135deg, rgba(122, 155, 209, 0.98) 0%, rgba(143, 168, 219, 0.98) 100%);
+        padding: 6rem 0rem 2rem 1.2rem;
+        /* 右側 padding 為 0，讓選項貼邊 */
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
+        z-index: 1001;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        visibility: hidden;
     }
 
     nav ul.show {
-        display: flex;
+        transform: translateX(0);
+        visibility: visible;
     }
 
     nav li {
+        width: 100%;
         text-align: center;
-        margin: 0.5rem 0;
+        /* 文字置中 */
+        margin: 0.8rem 0;
+    }
+
+    nav a {
+        display: block;
+        width: 100%;
+        font-size: 1.25rem;
+        padding: 1.1rem 1.5rem;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.1);
     }
 }
 
