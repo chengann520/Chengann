@@ -383,7 +383,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // 監聽窗口大小變化
     window.addEventListener('resize', function () {
         // 如果窗口變大，關閉移動端菜單
-        if (window.innerWidth > 768) {
+        if (window.innerWidth > 1024) {
             closeMenu();
         }
     });
