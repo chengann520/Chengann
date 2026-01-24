@@ -68,7 +68,7 @@ function renderBranches() {
             <h3>${branch.name}</h3>
             <div class="branch-info">
                 <p><strong>📍 地址：</strong>${branch.address}</p>
-                <p><strong>📞 電話：</strong>${branch.phone}</p>
+                <p><strong>📞 客服電話：</strong>${branch.phone}</p>
                 <p><strong>🕒 營業時間：</strong></p>
                 <p>${branch.hours}</p>
                 <p>${branch.weekend}</p>
