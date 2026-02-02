@@ -241,6 +241,7 @@ nav a.active {
     box-shadow: 0 10px 30px rgba(143, 168, 219, 0.1);
     transition: all 0.3s ease;
     border: 2px solid #A4B5E5;
+    will-change: transform, opacity;
 }
 
 .feature-card:hover {
@@ -551,6 +552,7 @@ nav a.active {
     box-shadow: 0 10px 30px rgba(143, 168, 219, 0.1);
     transition: all 0.3s ease;
     border-top: 4px solid #8FA8DB;
+    will-change: transform, opacity;
 }
 
 .branch-card:hover {
@@ -625,6 +627,7 @@ nav a.active {
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     border-left: 4px solid rgba(255, 255, 255, 0.3);
+    will-change: transform, background-color;
 }
 
 .contact-item:hover {
@@ -764,6 +767,7 @@ html {
     display: flex;
     transition: transform 0.5s ease-in-out;
     height: 100%;
+    will-change: transform;
 }
 
 .photo-slide {
@@ -1426,6 +1430,21 @@ html {
         padding: 1.1rem 1.5rem;
         border-radius: 12px;
         background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* 效能優化：手機版移除毛玻璃效果 */
+    header,
+    nav ul {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    header {
+        background: linear-gradient(135deg, #7A9BD1 0%, #8FA8DB 100%);
+    }
+
+    nav ul {
+        background: linear-gradient(135deg, #7A9BD1 0%, #8FA8DB 100%);
     }
 }
 
