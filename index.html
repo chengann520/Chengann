@@ -248,8 +248,24 @@
                             <p>社福馬桶、壁掛沐浴椅、面盆更新、地板止滑等專業浴室設備，打造安全舒適的盥洗環境，降低浴室跌倒風險</p>
                         </div>
                         <div class="feature-card">
-                            <img src="https://raw.githubusercontent.com/Chengann520/my-images/main/images/4.jpg"
-                                alt="台北、新北專業無障礙扶手安裝服務-馬桶起身與洗澡防滑" class="feature-image zoomable">
+                            <div class="photo-carousel" id="handrailCarousel">
+                                <div class="photo-container" id="handrailPhotoContainer">
+                                    <div class="photo-slide">
+                                        <img src="https://raw.githubusercontent.com/Chengann520/my-images/main/images/4.jpg"
+                                            alt="台北、新北專業無障礙扶手安裝服務-馬桶起身與洗澡防滑" class="zoomable">
+                                    </div>
+                                    <div class="photo-slide">
+                                        <img src="https://raw.githubusercontent.com/Chengann520/my-images/main/images/15.png"
+                                            alt="台北、新北專業無障礙扶手安裝服務-實例分享" class="zoomable">
+                                    </div>
+                                </div>
+                                <button class="nav-button prev" onclick="changeHandrailSlide(-1)">‹</button>
+                                <button class="nav-button next" onclick="changeHandrailSlide(1)">›</button>
+                                <div class="dots-container" id="handrailDots">
+                                    <span class="dot active" onclick="goToHandrailSlide(0)"></span>
+                                    <span class="dot" onclick="goToHandrailSlide(1)"></span>
+                                </div>
+                            </div>
                             <h3>扶手安裝服務</h3>
                             <p>走廊扶手、上掀扶手、L型扶手、浴室扶手等各式扶手安裝，提供全方位安全防護。針對馬桶起身、洗澡防滑、走廊行走提供穩固支撐，依據長輩身高與習慣量身安裝。</p>
                         </div>
