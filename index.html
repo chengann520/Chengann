@@ -273,8 +273,24 @@
                             <p>走廊扶手、上掀扶手、L型扶手、浴室扶手等各式扶手安裝，提供全方位安全防護。針對馬桶起身、洗澡防滑、走廊行走提供穩固支撐，依據長輩身高與習慣量身安裝。</p>
                         </div>
                         <div class="feature-card">
-                            <img src="https://raw.githubusercontent.com/Chengann520/my-images/main/images/6.jpg"
-                                alt="台北新北居家無障礙移動斜坡板" class="feature-image zoomable" loading="lazy" decoding="async">
+                            <div class="photo-carousel" id="rampCarousel">
+                                <div class="photo-container" id="rampPhotoContainer">
+                                    <div class="photo-slide">
+                                        <img src="https://raw.githubusercontent.com/Chengann520/my-images/main/images/6.jpg"
+                                            alt="台北新北居家無障礙移動斜坡板" class="zoomable" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="photo-slide">
+                                        <img src="https://raw.githubusercontent.com/Chengann520/my-images/main/images/16.jpg"
+                                            alt="台北新北居家無障礙移動斜坡板-實例分享" class="zoomable" loading="lazy" decoding="async">
+                                    </div>
+                                </div>
+                                <button class="nav-button prev" onclick="changeRampSlide(-1)">‹</button>
+                                <button class="nav-button next" onclick="changeRampSlide(1)">›</button>
+                                <div class="dots-container" id="rampDots">
+                                    <span class="dot active" onclick="goToRampSlide(0)"></span>
+                                    <span class="dot" onclick="goToRampSlide(1)"></span>
+                                </div>
+                            </div>
                             <h3>移動斜坡板</h3>
                             <p>專業移動斜坡板，輕鬆克服門檻與高低差，讓輪椅族與行動不便者進出更順暢便利</p>
                         </div>
