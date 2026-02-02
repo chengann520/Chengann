@@ -335,6 +335,130 @@ function updateCarousel() {
     }
 }
 
+// 證照輪播圖邏輯
+let currentCertSlide = 0;
+const totalCertSlides = 4;
+let certPhotoContainer;
+let certDots;
+
+function initCertCarousel() {
+    certPhotoContainer = document.getElementById('certPhotoContainer');
+    certDots = document.querySelectorAll('#certDots .dot');
+
+    if (!certPhotoContainer || !certDots.length) return;
+
+    // 觸控滑動支援
+    const certCarousel = document.getElementById('certCarousel');
+    if (certCarousel) {
+        let startX = 0;
+        let startY = 0;
+        let isScrolling = false;
+
+        certCarousel.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            isScrolling = false;
+        });
+
+        certCarousel.addEventListener('touchmove', (e) => {
+            if (!startX || !startY) return;
+
+            const currentX = e.touches[0].clientX;
+            const currentY = e.touches[0].clientY;
+            const diffX = startX - currentX;
+            const diffY = startY - currentY;
+
+            if (Math.abs(diffX) > Math.abs(diffY)) {
+                isScrolling = true;
+                e.preventDefault();
+            }
+        });
+
+        certCarousel.addEventListener('touchend', (e) => {
+            if (!startX || !isScrolling) return;
+
+            const endX = e.changedTouches[0].clientX;
+            const diffX = startX - endX;
+
+            if (Math.abs(diffX) > 50) {
+                if (diffX > 0) {
+                    changeCertSlide(1);
+                } else {
+                    changeCertSlide(-1);
+                }
+            }
+
+            startX = 0;
+            startY = 0;
+            isScrolling = false;
+        });
+    }
+}
+
+function changeCertSlide(direction) {
+    currentCertSlide += direction;
+
+    if (currentCertSlide >= totalCertSlides) {
+        currentCertSlide = 0;
+    } else if (currentCertSlide < 0) {
+        currentCertSlide = totalCertSlides - 1;
+    }
+
+    updateCertCarousel();
+}
+
+function goToCertSlide(slideIndex) {
+    currentCertSlide = slideIndex;
+    updateCertCarousel();
+}
+
+function updateCertCarousel() {
+    if (!certPhotoContainer) return;
+    const translateX = -currentCertSlide * 100;
+    certPhotoContainer.style.transform = `translateX(${translateX}%)`;
+
+    if (certDots) {
+        certDots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentCertSlide);
+        });
+    }
+}
+
+// 燈箱放大功能
+function initLightbox() {
+    const images = document.querySelectorAll('.zoomable');
+    images.forEach(img => {
+        img.addEventListener('click', function () {
+            openLightbox(this.src);
+        });
+    });
+
+    // ESC 鍵關閉燈箱
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            closeLightbox();
+        }
+    });
+}
+
+function openLightbox(src) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    if (!lightbox || !lightboxImg) return;
+
+    lightboxImg.src = src;
+    lightbox.classList.add('show');
+    document.body.style.overflow = 'hidden'; // 禁止背景滾動
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
+
+    lightbox.classList.remove('show');
+    document.body.style.overflow = ''; // 恢復背景滾動
+}
+
 // 頁面載入完成後的初始化
 document.addEventListener('DOMContentLoaded', function () {
     // 渲染分店資訊
@@ -348,6 +472,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 初始化輪播圖
     initCarousel();
+    initCertCarousel();
+
+    // 初始化燈箱功能
+    initLightbox();
 
     // 為所有CTA按鈕添加點擊事件
     const ctaButtons = document.querySelectorAll('.cta-button');
