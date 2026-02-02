@@ -241,126 +241,33 @@ const observer = new IntersectionObserver(function (entries) {
     });
 }, observerOptions);
 
-// 輪播圖邏輯
-let currentSlide = 0;
-const totalSlides = 3;
-let photoContainer;
-let dots;
+// 輪播圖類別
+class Carousel {
+    constructor(id, totalSlides) {
+        this.id = id;
+        this.totalSlides = totalSlides;
+        this.currentSlide = 0;
+        this.container = document.getElementById(id);
+        this.photoContainer = this.container ? this.container.querySelector('.photo-container') : null;
+        this.dots = this.container ? this.container.querySelectorAll('.dot') : [];
 
-function initCarousel() {
-    photoContainer = document.getElementById('photoContainer');
-    dots = document.querySelectorAll('.dot');
+        if (this.container) {
+            this.init();
+        }
+    }
 
-    if (!photoContainer || !dots.length) return;
-
-    // 觸控滑動支援
-    const carousel = document.getElementById('carousel');
-    if (carousel) {
+    init() {
         let startX = 0;
         let startY = 0;
         let isScrolling = false;
 
-        carousel.addEventListener('touchstart', (e) => {
+        this.container.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
             startY = e.touches[0].clientY;
             isScrolling = false;
         });
 
-        carousel.addEventListener('touchmove', (e) => {
-            if (!startX || !startY) return;
-
-            const currentX = e.touches[0].clientX;
-            const currentY = e.touches[0].clientY;
-            const diffX = startX - currentX;
-            const diffY = startY - currentY;
-
-            if (Math.abs(diffX) > Math.abs(diffY)) {
-                isScrolling = true;
-                e.preventDefault(); // 防止頁面滾動
-            }
-        });
-
-        carousel.addEventListener('touchend', (e) => {
-            if (!startX || !isScrolling) return;
-
-            const endX = e.changedTouches[0].clientX;
-            const diffX = startX - endX;
-
-            // 滑動距離閾值
-            if (Math.abs(diffX) > 50) {
-                if (diffX > 0) {
-                    changeSlide(1); // 左滑，下一張
-                } else {
-                    changeSlide(-1); // 右滑，上一張
-                }
-            }
-
-            startX = 0;
-            startY = 0;
-            isScrolling = false;
-        });
-    }
-}
-
-// 切換照片函數
-function changeSlide(direction) {
-    currentSlide += direction;
-
-    if (currentSlide >= totalSlides) {
-        currentSlide = 0;
-    } else if (currentSlide < 0) {
-        currentSlide = totalSlides - 1;
-    }
-
-    updateCarousel();
-}
-
-// 直接跳到指定照片
-function goToSlide(slideIndex) {
-    currentSlide = slideIndex;
-    updateCarousel();
-}
-
-// 更新輪播狀態
-function updateCarousel() {
-    if (!photoContainer) return;
-    const translateX = -currentSlide * 100;
-    photoContainer.style.transform = `translateX(${translateX}%)`;
-
-    // 更新指示點
-    if (dots) {
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentSlide);
-        });
-    }
-}
-
-// 證照輪播圖邏輯
-let currentCertSlide = 0;
-const totalCertSlides = 4;
-let certPhotoContainer;
-let certDots;
-
-function initCertCarousel() {
-    certPhotoContainer = document.getElementById('certPhotoContainer');
-    certDots = document.querySelectorAll('#certDots .dot');
-
-    if (!certPhotoContainer || !certDots.length) return;
-
-    // 觸控滑動支援
-    const certCarousel = document.getElementById('certCarousel');
-    if (certCarousel) {
-        let startX = 0;
-        let startY = 0;
-        let isScrolling = false;
-
-        certCarousel.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-            startY = e.touches[0].clientY;
-            isScrolling = false;
-        });
-
-        certCarousel.addEventListener('touchmove', (e) => {
+        this.container.addEventListener('touchmove', (e) => {
             if (!startX || !startY) return;
 
             const currentX = e.touches[0].clientX;
@@ -374,7 +281,7 @@ function initCertCarousel() {
             }
         });
 
-        certCarousel.addEventListener('touchend', (e) => {
+        this.container.addEventListener('touchend', (e) => {
             if (!startX || !isScrolling) return;
 
             const endX = e.changedTouches[0].clientX;
@@ -382,9 +289,9 @@ function initCertCarousel() {
 
             if (Math.abs(diffX) > 50) {
                 if (diffX > 0) {
-                    changeCertSlide(1);
+                    this.changeSlide(1);
                 } else {
-                    changeCertSlide(-1);
+                    this.changeSlide(-1);
                 }
             }
 
@@ -393,35 +300,71 @@ function initCertCarousel() {
             isScrolling = false;
         });
     }
+
+    changeSlide(direction) {
+        this.currentSlide += direction;
+
+        if (this.currentSlide >= this.totalSlides) {
+            this.currentSlide = 0;
+        } else if (this.currentSlide < 0) {
+            this.currentSlide = this.totalSlides - 1;
+        }
+
+        this.update();
+    }
+
+    goToSlide(slideIndex) {
+        this.currentSlide = slideIndex;
+        this.update();
+    }
+
+    update() {
+        if (!this.photoContainer) return;
+        const translateX = -this.currentSlide * 100;
+        this.photoContainer.style.transform = `translateX(${translateX}%)`;
+
+        if (this.dots.length) {
+            this.dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === this.currentSlide);
+            });
+        }
+    }
+}
+
+// 初始化所有輪播圖
+let detectorCarousel;
+let certCarousel;
+let handrailCarousel;
+
+function initAllCarousels() {
+    detectorCarousel = new Carousel('carousel', 3);
+    certCarousel = new Carousel('certCarousel', 4);
+    handrailCarousel = new Carousel('handrailCarousel', 2);
+}
+
+// 為了相容 HTML 上的 onclick 事件，定義全域函數
+function changeSlide(direction) {
+    if (detectorCarousel) detectorCarousel.changeSlide(direction);
+}
+
+function goToSlide(slideIndex) {
+    if (detectorCarousel) detectorCarousel.goToSlide(slideIndex);
 }
 
 function changeCertSlide(direction) {
-    currentCertSlide += direction;
-
-    if (currentCertSlide >= totalCertSlides) {
-        currentCertSlide = 0;
-    } else if (currentCertSlide < 0) {
-        currentCertSlide = totalCertSlides - 1;
-    }
-
-    updateCertCarousel();
+    if (certCarousel) certCarousel.changeSlide(direction);
 }
 
 function goToCertSlide(slideIndex) {
-    currentCertSlide = slideIndex;
-    updateCertCarousel();
+    if (certCarousel) certCarousel.goToSlide(slideIndex);
 }
 
-function updateCertCarousel() {
-    if (!certPhotoContainer) return;
-    const translateX = -currentCertSlide * 100;
-    certPhotoContainer.style.transform = `translateX(${translateX}%)`;
+function changeHandrailSlide(direction) {
+    if (handrailCarousel) handrailCarousel.changeSlide(direction);
+}
 
-    if (certDots) {
-        certDots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentCertSlide);
-        });
-    }
+function goToHandrailSlide(slideIndex) {
+    if (handrailCarousel) handrailCarousel.goToSlide(slideIndex);
 }
 
 // 燈箱放大功能
@@ -471,8 +414,7 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('hashchange', handleHashChange);
 
     // 初始化輪播圖
-    initCarousel();
-    initCertCarousel();
+    initAllCarousels();
 
     // 初始化燈箱功能
     initLightbox();
