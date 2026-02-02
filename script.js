@@ -120,18 +120,16 @@ function handleHashChange() {
 }
 
 // 更新導航狀態
+let lastActivePageId = null;
 function updateNavigation(activePageId) {
+    if (lastActivePageId === activePageId) return;
+    lastActivePageId = activePageId;
+
     // 移除所有導航項目的active狀態
     const navItems = document.querySelectorAll('nav a');
     navItems.forEach(item => {
-        item.classList.remove('active');
+        item.classList.toggle('active', item.id === `nav-${activePageId}`);
     });
-
-    // 為對應的導航項目添加active狀態
-    const activeNavItem = document.getElementById(`nav-${activePageId}`);
-    if (activeNavItem) {
-        activeNavItem.classList.add('active');
-    }
 }
 
 // 移動端菜單切換
@@ -459,21 +457,25 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // 添加滾動效果
-    let lastScrollTop = 0;
+    let scrollTicking = false;
     window.addEventListener('scroll', function () {
-        const header = document.querySelector('header');
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (!scrollTicking) {
+            window.requestAnimationFrame(function () {
+                const header = document.querySelector('header');
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-        // 向下滾動時添加陰影效果
-        if (header) {
-            if (scrollTop > 50) {
-                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
-            } else {
-                header.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
-            }
+                // 向下滾動時添加陰影效果
+                if (header) {
+                    if (scrollTop > 50) {
+                        header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
+                    } else {
+                        header.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
+                    }
+                }
+                scrollTicking = false;
+            });
+            scrollTicking = true;
         }
-
-        lastScrollTop = scrollTop;
     });
 
     // 當頁面載入後觀察所有需要動畫的元素
