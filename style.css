@@ -1,1546 +1,443 @@
-/* Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    line-height: 1.7;
-    color: #2C3E50;
-    background: linear-gradient(135deg, #F8F9FA 0%, #FFFFFF 100%);
-    padding-top: 70px;
-    overflow-x: hidden;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-}
-
-/* Header - 保持原本配色,優化視覺效果 */
-header {
-    background: linear-gradient(135deg, #7A9BD1 0%, #8FA8DB 50%, #A4B5E5 100%);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    color: white;
-    padding: 1.1rem 0;
-    box-shadow: 0 4px 20px rgba(143, 168, 219, 0.3);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap;
-    /* 不換行，確保選單與店名在同一行 */
-}
-
-.logo {
-    font-size: 1.85rem;
-    font-weight: 900;
-    color: white;
-    text-shadow: 2px 3px 6px rgba(0, 0, 0, 0.25);
-    cursor: pointer;
-    letter-spacing: -0.3px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.logo:hover {
-    transform: translateY(-2px);
-    text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
-}
-
-/* Mobile Menu Toggle */
-.menu-toggle {
-    display: none;
-    background: rgba(255, 255, 255, 0.12);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0.6rem;
-    border-radius: 8px;
-    transition: all 0.1s ease;
-}
-
-.menu-toggle:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 0.8rem;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.05rem;
-    font-weight: 500;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 0.65rem 1.2rem;
-    border-radius: 8px;
-    cursor: pointer;
-    position: relative;
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%) scaleX(0);
-    width: 80%;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.8);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-nav a:hover::after,
-nav a.active::after {
-    transform: translateX(-50%) scaleX(1);
-}
-
-nav a:hover,
-nav a.active {
-    background: rgba(123, 104, 179, 0.35);
-    transform: translateY(-2px);
-}
-
-/* Page content styling */
-.page {
-    display: none;
-    min-height: calc(100vh - 200px);
-    padding: 2rem 0;
-}
-
-.page.active {
-    display: block;
-}
-
-/* Hero Section - 更細膩的漸層 */
-.hero {
-    background: linear-gradient(135deg, rgba(122, 155, 209, 0.9) 0%, rgba(143, 168, 219, 0.85) 50%, rgba(164, 181, 229, 0.8) 100%),
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect width="1200" height="800" fill="%23F8F9FA"/><circle cx="200" cy="200" r="100" fill="%238FA8DB" opacity="0.4"/><circle cx="1000" cy="600" r="150" fill="%237A9BD1" opacity="0.4"/><circle cx="600" cy="400" r="120" fill="%23A4B5E5" opacity="0.4"/></svg>');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    text-align: center;
-    padding: 6rem 0;
-    position: relative;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 30% 50%, rgba(164, 181, 229, 0.2) 0%, transparent 70%);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.hero h1 {
-    font-size: 2.7rem;
-    font-weight: 900;
-    margin-bottom: 1rem;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
-    animation: fadeInUp 1s ease-out;
-    letter-spacing: -0.5px;
-}
-
-.hero p {
-    font-size: 1.4rem;
-    margin-bottom: 2rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    animation: fadeInUp 1s ease-out 0.3s both;
-    line-height: 1.8;
-}
-
-.cta-button {
-    display: inline-block;
-    background: linear-gradient(135deg, #8FA8DB 0%, #A4B5E5 50%, #7A9BD1 100%);
-    color: white;
-    padding: 1rem 2.5rem;
-    text-decoration: none;
-    border-radius: 50px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    box-shadow: 0 6px 20px rgba(143, 168, 219, 0.4);
-    animation: fadeInUp 1s ease-out 0.6s both;
-    cursor: pointer;
-    border: none;
-}
-
-.cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(123, 104, 179, 0.5);
-    background: linear-gradient(135deg, #7B68B3 0%, #8FA8DB 50%, #A4B5E5 100%);
-}
-
-/* Features Section */
-.features {
-    padding: 5rem 0;
-    background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: #0D2947;
-    margin-bottom: 3rem;
-    position: relative;
-    letter-spacing: -0.5px;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(135deg, #7A9BD1 0%, #7B68B3 30%, #8FA8DB 70%, #A4B5E5 100%);
-    border-radius: 2px;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
-    margin-top: 4rem;
-}
-
-/* 產品服務卡片樣式 */
-.feature-card {
-    text-align: center;
-    padding: 2.5rem;
-    background: linear-gradient(135deg, #FFFFFF 0%, rgba(164, 181, 229, 0.05) 100%);
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(143, 168, 219, 0.1);
-    transition: all 0.3s ease;
-    border: 2px solid #A4B5E5;
-}
-
-.feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(143, 168, 219, 0.2);
-    background: linear-gradient(135deg, #FFFFFF 0%, rgba(143, 168, 219, 0.1) 100%);
-    border-color: #7B68B3;
-}
-
-.feature-icon {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
-    color: #0D2947;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.feature-card h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: #0D2947;
-}
-
-.feature-card p {
-    font-size: 1.1875rem;
-    /* 19px */
-    color: #0D2947;
-    line-height: 1.7;
-    opacity: 1;
-}
-
-/* 產品圖片樣式 */
-.feature-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin: 15px 0;
-    box-shadow: 0 5px 15px rgba(143, 168, 219, 0.15);
-    transition: all 0.3s ease;
-}
-
-.feature-card:hover .feature-image {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(123, 104, 179, 0.25);
-}
-
-/* Trust Section */
-.trust-section {
-    background: linear-gradient(135deg, rgba(164, 181, 229, 0.1) 0%, rgba(143, 168, 219, 0.05) 50%, #F8F9FA 100%);
-    padding: 4rem 0;
-    text-align: center;
-}
-
-.trust-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.trust-badges {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    margin-top: 2rem;
-    flex-wrap: wrap;
-}
-
-.trust-badge {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(143, 168, 219, 0.1);
-    transition: transform 0.3s ease;
-    border-top: 3px solid #8FA8DB;
-}
-
-.trust-badge:hover {
-    transform: scale(1.05);
-    border-top-color: #7B68B3;
-}
-
-/* About Section */
-.about-section {
-    background: linear-gradient(135deg, #FFFFFF 0%, rgba(164, 181, 229, 0.03) 100%);
-    padding: 5rem 0;
-}
-
-.about-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    align-items: start;
-    margin-top: 2rem;
-}
-
-.about-text h3 {
-    margin-bottom: 1rem;
-    margin-top: 2rem;
-    color: #0D2947;
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-
-.about-text h3:nth-of-type(1) {
-    margin-top: 0;
-}
-
-.about-text h3:nth-of-type(2) {
-    color: #7B68B3;
-}
-
-.about-text p {
-    font-size: 1.1875rem;
-    /* 19px */
-    line-height: 1.7;
-    color: #2c3e50ee;
-    opacity: 1.0;
-    margin-bottom: 0.5rem;
-}
-
-/* 客戶評價頁面專用樣式 */
-.credit-section {
-    background: linear-gradient(135deg, #F8F9FA 0%, #e9ecef 100%);
-    padding: 80px 0;
-    position: relative;
-}
-
-.credit-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="%23ffffff" opacity="0.1"/><circle cx="10" cy="50" r="0.5" fill="%23ffffff" opacity="0.1"/><circle cx="90" cy="30" r="0.5" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-    opacity: 0.3;
-    pointer-events: none;
-}
-
-.section-subtitle {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #6c757d;
-    margin-bottom: 4rem;
-    font-weight: 300;
-}
-
-/* Facebook 評價區塊樣式 */
-.facebook-reviews {
-    margin-top: 2rem;
-}
-
-.facebook-placeholder {
-    background: linear-gradient(135deg, #4267B2, #365899);
-    border-radius: 15px;
-    padding: 3rem;
-    color: white;
-    text-align: center;
-    margin-bottom: 2rem;
-    box-shadow: 0 10px 30px rgba(66, 103, 178, 0.3);
-}
-
-.facebook-placeholder h4 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: white;
-}
-
-.facebook-placeholder p {
-    font-size: 1.2rem;
-    opacity: 0.9;
-    margin-bottom: 2rem;
-    color: white;
-}
-
-/* 統計數據區塊 */
-.review-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
-    text-align: center;
-}
-
-.stat-item {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.stat-item:hover {
-    transform: translateY(-3px);
-}
-
-.stat-number {
-    font-size: 2.8rem;
-    font-weight: bold;
-    color: #3c62b0;
-    display: block;
-}
-
-.stat-label {
-    font-size: 1.75rem;
-    /* 28px */
-    font-weight: bold;
-    color: #3c62b0;
-    margin-top: 0.5rem;
-}
-
-/* Facebook 連結按鈕 */
-.facebook-link {
-    display: inline-block;
-    margin-top: 1.5rem;
-    padding: 15px 30px;
-    background: linear-gradient(135deg, #ffffff, #ffffff);
-    color: #4267B2;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(66, 103, 178, 0.3);
-}
-
-.facebook-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(66, 103, 178, 0.4);
-    background: linear-gradient(135deg, #8FA8DB, #8FA8DB);
-}
-
-/* 客戶見證區塊 */
-.testimonial-section {
-    background: white;
-    padding: 80px 0;
-}
-
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 4rem;
-}
-
-.testimonial {
-    background: #f8f9fa;
-    padding: 2.5rem;
-    border-radius: 15px;
-    border-left: 5px solid #4267B2;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.testimonial:hover {
-    transform: translateY(-5px);
-}
-
-.testimonial-text {
-    font-style: italic;
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #2C3E50;
-}
-
-.testimonial-author {
-    font-weight: bold;
-    color: #4267B2;
-}
-
-.stars {
-    color: #ffc107;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-}
-
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0px) rotate(0deg);
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>城安無障礙規劃 - 雙北浴室扶手安裝 / 居家無障礙改造 / 長照輔具補助</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="https://raw.githubusercontent.com/chengann520/Chengann/main/favicon.png">
+
+
+    <!-- Open Graph 標籤 -->
+    <meta property="og:title" content="城安無障礙規劃實業社">
+    <meta property="og:description" content="提供專業輔具與無障礙規劃服務，打造安全舒適的居家環境。">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Chengann520/my-images/main/images/9.jpg">
+    <meta property="og:url" content="https://chengann520.github.io/Chengann/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="城安無障礙規劃實業社">
+    <meta name="twitter:description" content="提供專業輔具與無障礙規劃服務，打造安全舒適的居家環境。">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/Chengann520/my-images/main/images/9.jpg">
+
+    <meta name="description" content="台北、新北無障礙空間規劃。提供浴室防滑、扶手安裝、斜坡板、門檻改善等服務。雙北政府特約廠商，協助長照2.0輔具補助申請與評估，為長輩打造安全居家環境。">
+    <meta name="keywords"
+        content="無障礙設計, 輔具規劃, 輔助器材, 城安, barrier-free, 輔具, 無障礙空間, 居家改造, 衛福部, 衛生福利部, 社會局, 新北市, 台北市, 政府補助, 扶手, 斜坡板, 止滑, 浴廁安全, 無障礙坡道, 無障礙扶手, 無障礙環境, 高齡友善, 長照, 居家照顧, 無障礙工程, 無障礙設備, 身障者輔助, 老人輔具, 輪椅通道, 行動輔具, 銀髮族, 居家安全, 無障礙規劃公司">
+    <meta name="google-site-verification" content="fIkE-BAqvMpSc5KNHMzlYxTAaEZ9XkJSMBcsBA3DgFU" />
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "城安無障礙設備",
+      "description": "專業無障礙設備安裝、輔具配置、浴室改造服務，雙北政府特約廠商",
+      "telephone": "0906-828-969",
+      "url": "https://chengann520.github.io/Chengann/",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "成功路41巷29號1樓",
+        "addressLocality": "三重區",
+        "addressRegion": "新北市",
+        "addressCountry": "TW"
+      },
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "serviceArea": {
+        "@type": "Place",
+        "name": "台北市、新北市"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "無障礙設備服務",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "浴室無障礙改造"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "扶手安裝"
+            }
+          }
+        ]
+      }
     }
+    </script>
 
-    50% {
-        transform: translateY(-20px) rotate(180deg);
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "城安無障礙規劃實業社",
+      "alternateName": ["城安", "城安無障礙", "Chengann"],
+      "url": "https://chengann520.github.io/Chengann/"
     }
-}
-
-/* Branches Section */
-.branches-section {
-    background: linear-gradient(135deg, rgba(164, 181, 229, 0.08) 0%, rgba(143, 168, 219, 0.05) 50%, #F8F9FA 100%);
-    padding: 5rem 0;
-}
-
-.branches-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2.5rem;
-    margin-top: 3rem;
-}
-
-/* 分店卡片樣式 */
-.branch-card {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(143, 168, 219, 0.1);
-    transition: all 0.3s ease;
-    border-top: 4px solid #8FA8DB;
-}
-
-.branch-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(143, 168, 219, 0.2);
-    border-top-color: #7B68B3;
-}
-
-.branch-card h3 {
-    color: #0D2947;
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-    font-weight: 700;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #A4B5E5;
-}
-
-.branch-info p {
-    margin-bottom: 0.8rem;
-    line-height: 1.7;
-    color: #2C3E50;
-    opacity: 0.8;
-}
-
-.branch-buttons {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.contact-btn {
-    background: linear-gradient(135deg, #8FA8DB 0%, #A4B5E5 100%);
-    color: white;
-    padding: 0.8rem 1.5rem;
-    text-decoration: none;
-    border-radius: 25px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    flex: 1;
-    text-align: center;
-    min-width: 120px;
-    box-shadow: 0 3px 10px rgba(143, 168, 219, 0.3);
-}
-
-.contact-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(123, 104, 179, 0.4);
-    background: linear-gradient(135deg, #7B68B3 0%, #8FA8DB 100%);
-}
-
-/* Contact Section */
-.contact {
-    background: linear-gradient(135deg, #7A9BD1 0%, #8FA8DB 50%, #A4B5E5 100%);
-    color: white;
-    padding: 4rem 0;
-    text-align: center;
-}
-
-.contact-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.contact-item {
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-    border-left: 4px solid rgba(255, 255, 255, 0.3);
-}
-
-.contact-item:hover {
-    background: rgba(255, 255, 255, 0.25);
-    transform: translateY(-5px);
-    border-left-color: #7B68B3;
-}
-
-.contact-item h3 {
-    color: white;
-    margin-bottom: 0.5rem;
-    font-size: 1.3rem;
-}
-
-.contact-item p {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.2rem;
-}
-
-/* Footer */
-footer {
-    background: linear-gradient(135deg, #7A9BD1 0%, rgba(122, 155, 209, 0.95) 100%);
-    color: white;
-    text-align: center;
-    padding: 2rem 0;
-}
-
-footer p {
-    color: rgba(255, 255, 255, 0.9);
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Additional utility classes */
-.text-primary {
-    color: #0D2947;
-}
-
-.text-secondary {
-    color: #7A9BD1;
-}
-
-.text-light {
-    color: #A4B5E5;
-}
-
-.text-purple {
-    color: #7B68B3;
-}
-
-.bg-primary {
-    background: #8FA8DB;
-}
-
-.bg-secondary {
-    background: #7A9BD1;
-}
-
-.bg-light {
-    background: #A4B5E5;
-}
-
-.bg-purple {
-    background: #7B68B3;
-}
-
-.gradient-primary {
-    background: linear-gradient(135deg, #7A9BD1 0%, #8FA8DB 50%, #A4B5E5 100%);
-}
-
-.gradient-reverse {
-    background: linear-gradient(135deg, #A4B5E5 0%, #8FA8DB 50%, #7A9BD1 100%);
-}
-
-.gradient-purple {
-    background: linear-gradient(135deg, #7B68B3 0%, #8FA8DB 50%, #A4B5E5 100%);
-}
-
-/* Feature Card Updates */
-.feature-content {
-    padding: 5px;
-    text-align: center;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    align-items: start;
-    margin-top: 2rem;
-}
-
-.feature-content h3 {
-    margin-bottom: 1rem;
-    margin-top: 2rem;
-    color: #0D2947;
-    font-size: 1.4rem;
-    font-weight: bold;
-}
-
-.feature-content h3:nth-of-type(1) {
-    margin-top: 0;
-}
-
-.feature-content p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #2c3e50ee;
-    opacity: 1.0;
-    margin-bottom: 0.5rem;
-}
-
-/* Photo Carousel */
-.photo-carousel {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4/3;
-    overflow: hidden;
-    padding: 5px;
-    box-sizing: border-box;
-}
-
-.photo-container {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    height: 100%;
-}
-
-.photo-slide {
-    min-width: 100%;
-    height: 100%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 15px;
-    box-sizing: border-box;
-}
-
-.photo-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-}
-
-.nav-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.9);
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    color: #333;
-    transition: all 0.3s ease;
-    z-index: 10;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.nav-button:hover {
-    background: white;
-    transform: translateY(-50%) scale(1.1);
-}
-
-.nav-button.prev {
-    left: 10px;
-}
-
-.nav-button.next {
-    right: 10px;
-}
-
-/* Utility Classes */
-.mt-1 {
-    margin-top: 1rem;
-}
-
-.mt-2 {
-    margin-top: 2rem;
-}
-
-.mb-2 {
-    margin-bottom: 2rem;
-}
-
-.mb-3 {
-    margin-bottom: 3rem;
-}
-
-.text-white {
-    color: white !important;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.text-lg {
-    font-size: 1.2rem;
-}
-
-.no-decoration {
-    text-decoration: none;
-}
-
-.flex-center {
-    display: flex;
-    justify-content: center;
-}
-
-/* Video Section */
-.video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    background: #000;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(143, 168, 219, 0.3);
-}
-
-.video-iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: 15px;
-}
-
-/* Trust Section */
-.trust-description {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 2rem;
-}
-
-.trust-link {
-    color: #2c3e50;
-    text-decoration: none;
-}
-
-/* Facebook Section */
-.facebook-header-style {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1.5rem;
-    text-align: center;
-    border-top: 4px solid #4267B2;
-}
-
-.facebook-title {
-    margin-bottom: 0.5rem;
-    color: #4267B2;
-    font-size: 1.5rem;
-}
-
-.facebook-subtitle {
-    font-size: 1.2rem;
-    color: #666;
-    margin: 0;
-}
-
-.facebook-content-style {
-    background: white;
-    padding: 1rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.facebook-iframe {
-    border: none;
-    overflow: hidden;
-    max-width: 100%;
-}
-
-.facebook-btn-custom {
-    display: inline-block;
-    width: auto;
-    padding: 0.5rem 5.0rem;
-}
-
-/* Features Grid - Adjusted for mobile */
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 4rem;
-}
-
-/* Branches Grid - Adjusted for mobile */
-.branches-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-/* Contact Info Grid */
-.contact-info {
-    display: grid;
-    overflow: hidden;
-    padding: 5px;
-    box-sizing: border-box;
-}
-
-.photo-container {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    height: 100%;
-}
-
-.photo-slide {
-    min-width: 100%;
-    height: 100%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 15px;
-    box-sizing: border-box;
-}
-
-.photo-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-}
-
-.nav-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.9);
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    color: #333;
-    transition: all 0.3s ease;
-    z-index: 10;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.nav-button:hover {
-    background: white;
-    transform: translateY(-50%) scale(1.1);
-}
-
-.nav-button.prev {
-    left: 10px;
-}
-
-.nav-button.next {
-    right: 10px;
-}
-
-/* Utility Classes */
-.mt-1 {
-    margin-top: 1rem;
-}
-
-.mt-2 {
-    margin-top: 2rem;
-}
-
-.mb-2 {
-    margin-bottom: 2rem;
-}
-
-.mb-3 {
-    margin-bottom: 3rem;
-}
-
-.text-white {
-    color: white !important;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.text-lg {
-    font-size: 1.2rem;
-}
-
-.no-decoration {
-    text-decoration: none;
-}
-
-.flex-center {
-    display: flex;
-    justify-content: center;
-}
-
-/* Video Section */
-.video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    background: #000;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(143, 168, 219, 0.3);
-}
-
-.video-iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: 15px;
-}
-
-/* Trust Section */
-.trust-description {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 2rem;
-}
-
-.trust-link {
-    color: #2c3e50;
-    text-decoration: none;
-}
-
-/* Facebook Section */
-.facebook-header-style {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1.5rem;
-    text-align: center;
-    border-top: 4px solid #4267B2;
-}
-
-.facebook-title {
-    margin-bottom: 0.5rem;
-    color: #4267B2;
-    font-size: 1.5rem;
-}
-
-.facebook-subtitle {
-    font-size: 1.2rem;
-    color: #666;
-    margin: 0;
-}
-
-.facebook-content-style {
-    background: white;
-    padding: 1rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.facebook-iframe {
-    border: none;
-    overflow: hidden;
-    max-width: 100%;
-}
-
-.facebook-btn-custom {
-    display: inline-block;
-    width: auto;
-    padding: 0.5rem 5.0rem;
-}
-
-/* Features Grid - Adjusted for mobile */
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 4rem;
-}
-
-/* Branches Grid - Adjusted for mobile */
-.branches-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-/* Contact Info Grid */
-.contact-info {
-    display: grid;
-    overflow: hidden;
-    padding: 5px;
-    box-sizing: border-box;
-}
-
-.photo-container {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    height: 100%;
-}
-
-.photo-slide {
-    min-width: 100%;
-    height: 100%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 15px;
-    box-sizing: border-box;
-}
-
-.photo-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-}
-
-.nav-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.9);
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    color: #333;
-    transition: all 0.3s ease;
-    z-index: 10;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.nav-button:hover {
-    background: white;
-    transform: translateY(-50%) scale(1.1);
-}
-
-.nav-button.prev {
-    left: 10px;
-}
-
-.nav-button.next {
-    right: 10px;
-}
-
-/* Utility Classes */
-.mt-1 {
-    margin-top: 1rem;
-}
-
-.mt-2 {
-    margin-top: 2rem;
-}
-
-.mb-2 {
-    margin-bottom: 2rem;
-}
-
-.mb-3 {
-    margin-bottom: 3rem;
-}
-
-.text-white {
-    color: white !important;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.text-lg {
-    font-size: 1.2rem;
-}
-
-.no-decoration {
-    text-decoration: none;
-}
-
-.flex-center {
-    display: flex;
-    justify-content: center;
-}
-
-/* Video Section */
-.video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    background: #000;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(143, 168, 219, 0.3);
-}
-
-.video-iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: 15px;
-}
-
-/* Trust Section */
-.trust-description {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 2rem;
-}
-
-.trust-link {
-    color: #2c3e50;
-    text-decoration: none;
-}
-
-/* Facebook Section */
-.facebook-header-style {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1.5rem;
-    text-align: center;
-    border-top: 4px solid #4267B2;
-}
-
-.facebook-title {
-    margin-bottom: 0.5rem;
-    color: #4267B2;
-    font-size: 1.5rem;
-}
-
-.facebook-subtitle {
-    font-size: 1.2rem;
-    color: #666;
-    margin: 0;
-}
-
-.facebook-content-style {
-    background: white;
-    padding: 1rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.facebook-iframe {
-    border: none;
-    overflow: hidden;
-    max-width: 100%;
-}
-
-.facebook-btn-custom {
-    display: inline-block;
-    width: auto;
-    padding: 0.5rem 5.0rem;
-}
-
-/* Features Grid - Adjusted for mobile */
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 4rem;
-}
-
-/* Branches Grid - Adjusted for mobile */
-.branches-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-/* Contact Info Grid */
-.contact-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-/* 響應式調整 */
-@media (max-width: 1024px) {
-    header .container {
-        padding: 0 0 0 20px;
-        /* 右側 padding 為 0，讓按鈕完全貼邊 */
-    }
-
-    .container {
-        padding: 0 16px;
-    }
-
-    .feature-card {
-        padding: 1.5rem;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .hero h1 {
-        font-size: 2.0rem;
-    }
-
-    .hero p {
-        font-size: 1.1rem;
-    }
-
-    .nav-button {
-        width: 35px;
-        height: 35px;
-        font-size: 1.2rem;
-    }
-
-    /* 移動端菜單樣式 - 側邊欄模式 */
-    .menu-toggle {
-        display: block;
-        margin-right: 0;
-        /* 移除右側邊距 */
-        z-index: 1002;
-        /* 確保切換按鈕在側邊欄之上 */
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 280px;
-        height: 100vh;
-        background: linear-gradient(135deg, rgba(122, 155, 209, 0.98) 0%, rgba(143, 168, 219, 0.98) 100%);
-        padding: 6rem 0rem 2rem 1.2rem;
-        /* 右側 padding 為 0，讓選項貼邊 */
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
-        z-index: 1001;
-        transform: translateX(100%);
-        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        visibility: hidden;
-    }
-
-    nav ul.show {
-        transform: translateX(0);
-        visibility: visible;
-    }
-
-    nav li {
-        width: 100%;
-        text-align: center;
-        /* 文字置中 */
-        margin: 0.8rem 0;
-    }
-
-    nav a {
-        display: block;
-        width: 100%;
-        font-size: 1.25rem;
-        padding: 1.1rem 1.5rem;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.1);
-    }
-}
-
-/* Contact Section Global */
-.contact-section-global {
-    background: linear-gradient(135deg, #7A9BD1 0%, #8FA8DB 50%, #A4B5E5 100%);
-    color: white;
-    padding: 4rem 0;
-    text-align: center;
-    width: 100%;
-}
-
-/* Certificate Carousel Specific Style */
-.cert-carousel {
-    aspect-ratio: 8 / 5 !important;
-    margin-top: 1.5rem;
-    box-shadow: 0 10px 30px rgba(143, 168, 219, 0.2);
-    border: 1px solid rgba(164, 181, 229, 0.3);
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.cert-carousel .photo-slide img {
-    object-fit: contain;
-    background: #f8f9fa;
-}
-
-/* Lightbox Modal - Hardened for Mobile */
-.zoomable {
-    cursor: zoom-in;
-    transition: transform 0.3s ease;
-}
-
-.zoomable:hover {
-    transform: scale(1.02);
-}
-
-.lightbox {
-    position: fixed !important;
-    z-index: 9999 !important;
-    /* Extremely high z-index */
-    left: 0 !important;
-    top: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    background-color: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    cursor: zoom-out;
-    display: none;
-    /* Use display none instead of visibility */
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    overflow: hidden;
-    touch-action: none;
-    /* Prevent scrolling behind lightbox */
-}
-
-.lightbox.show {
-    display: flex;
-    opacity: 1;
-}
-
-.lightbox-content {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-    border-radius: 8px;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
-    transform: scale(0.85);
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    user-select: none;
-    -webkit-user-drag: none;
-}
-
-.lightbox.show .lightbox-content {
-    transform: scale(1);
-}
-
-.lightbox-close {
-    position: absolute;
-    top: 25px;
-    right: 30px;
-    color: #ffffff;
-    font-size: 45px;
-    line-height: 1;
-    font-weight: 300;
-    transition: 0.3s;
-    cursor: pointer;
-    z-index: 10000;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-}
-
-.lightbox-close:hover {
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
-}
-
-@media only screen and (max-width: 768px) {
-    .lightbox-content {
-        max-width: 95%;
-        max-height: 85%;
-    }
-
-    .lightbox-close {
-        top: 20px;
-        right: 20px;
-        font-size: 35px;
-    }
-}
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v23.0"></script>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo" onclick="showPage('home')">城安無障礙規劃實業社 </div>
+                <button class="menu-toggle" onclick="toggleMenu()">
+                    <span id="menu-icon">☰</span>
+                </button>
+                <nav>
+                    <ul id="nav-menu">
+                        <li><a onclick="showPage('home')" id="nav-home" class="active">首頁</a></li>
+                        <li><a onclick="showPage('about')" id="nav-about">公司簡介</a></li>
+                        <li><a onclick="showPage('products')" id="nav-products">產品服務</a></li>
+                        <li><a onclick="showPage('branches')" id="nav-branches">分店資訊</a></li>
+                        <li><a onclick="showPage('credit')" id="nav-credit">客戶評價</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 首頁 -->
+        <div id="home" class="page active">
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>台北新北居家無障礙環境改善與輔具專家<br>(可申請補助)</h1>
+                        <p>城安秉持著「以人為本」的服務理念 提供專業輔具設備與無障礙空間規劃<br>讓您的家人在熟悉的環境中安全舒適地生活</p>
+                        <div class="video-container mt-2">
+                            <div class="video-wrapper">
+                                <iframe
+                                    src="https://www.youtube.com/embed/-KD1kNCgByM?autoplay=1&mute=1&loop=1&playlist=-KD1kNCgByM"
+                                    class="video-iframe" title="城安無障礙規劃介紹影片" loading="lazy"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="trust-section">
+                <div class="container">
+                    <div class="trust-content">
+                        <h2 class="section-title">值得信賴的專業團隊</h2>
+                        <p class="trust-description">城安作為雙北地區特約廠商
+                            協助無數家庭打造安全舒適的生活環境<br>專業的評估與貼心的服務~ 贏得無數客戶信賴!</p>
+                        <div class="trust-badges">
+                            <div class="trust-badge">
+                                <h3><a href="https://newrepat.sfaa.gov.tw/home/pavs/vendor/detail/4bc1e2b4925683da01928f33b742721d"
+                                        target="_blank" class="trust-link">💕 雙北特約</a></h3>
+                                <p><a href="https://newrepat.sfaa.gov.tw/home/pavs/vendor/detail/4bc1e2b4925683da01928f33b742721d"
+                                        target="_blank" class="trust-link">政府認證廠商</a></p>
+                            </div>
+                            <div class="trust-badge">
+                                <h3><a href="https://line.me/ti/p/SzjNVVDE9y" target="_blank" class="trust-link">🏆
+                                        專業團隊</a>
+                                </h3>
+                                <p><a href="https://line.me/ti/p/SzjNVVDE9y" target="_blank"
+                                        class="trust-link">專業評估服務</a>
+                                </p>
+                            </div>
+                            <div class="trust-badge">
+                                <h3><a href="https://www.facebook.com/profile.php?id=61559277592315&rdid=Mq78zEZGVLhtkMm0&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1G7DEg9Kxf%2F#"
+                                        target="_blank" class="trust-link">🔎 官方FB</a></h3>
+                                <p><a href="https://www.facebook.com/profile.php?id=61559277592315&rdid=Mq78zEZGVLhtkMm0&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1G7DEg9Kxf%2F#"
+                                        target="_blank" class="trust-link">立即追蹤城安</a></p>
+                            </div>
+                            <div class="trust-badge">
+                                <h3><a href="https://line.me/ti/p/SzjNVVDE9y" target="_blank" class="trust-link">🧑‍💻
+                                        官方LINE</a></h3>
+                                <p><a href="https://line.me/ti/p/SzjNVVDE9y" target="_blank"
+                                        class="trust-link">立即聯絡城安</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 公司簡介 -->
+        <div id="about" class="page">
+            <section class="about-section">
+                <div class="container">
+                    <h2 class="section-title">關於城安無障礙規劃</h2>
+                    <div class="about-content">
+                        <div class="about-text">
+                            <div class="features-grid">
+                                <div class="feature-card">
+                                    <h3>使命與理念</h3>
+                                    <p>城安誠心為每個家庭打造安全、舒適的生活環境，深信每個人在家中都應享受有尊嚴的生活，不因身體機能而受限<br><br>城安秉持「以人為本」的服務理念深入瞭解每位客戶的需求與生活習慣提供最適合的解決方案。
+                                    </p>
+                                </div>
+
+                                <div class="feature-card">
+                                    <h3>專業團隊與全方位服務</h3>
+                                    <p>城安擁有具備專業認證的無障礙規劃團隊，並持續接受專業教育訓練，為客戶提供最新、最專業、最完整的服務<br><br>從個人化的輔具選配、居家環境評估到空間改善工程，城安提供一站式的全方位解方，讓每位使用者都能安心生活。
+                                    </p>
+                                    <div class="photo-carousel cert-carousel" id="certCarousel">
+                                        <div class="photo-container" id="certPhotoContainer">
+                                            <div class="photo-slide">
+                                                <img src="https://raw.githubusercontent.com/chengann520/my-images/main/images/11.jpg"
+                                                    alt="證照 1" class="zoomable">
+                                            </div>
+                                            <div class="photo-slide">
+                                                <img src="https://raw.githubusercontent.com/chengann520/my-images/main/images/12.jpg"
+                                                    alt="證照 2" class="zoomable">
+                                            </div>
+                                            <div class="photo-slide">
+                                                <img src="https://raw.githubusercontent.com/chengann520/my-images/main/images/13.jpg"
+                                                    alt="證照 3" class="zoomable">
+                                            </div>
+                                            <div class="photo-slide">
+                                                <img src="https://raw.githubusercontent.com/chengann520/my-images/main/images/14.jpg"
+                                                    alt="證照 4" class="zoomable">
+                                            </div>
+                                        </div>
+                                        <button class="nav-button prev" onclick="changeCertSlide(-1)">‹</button>
+                                        <button class="nav-button next" onclick="changeCertSlide(1)">›</button>
+                                        <div class="dots-container" id="certDots">
+                                            <span class="dot active" onclick="goToCertSlide(0)"></span>
+                                            <span class="dot" onclick="goToCertSlide(1)"></span>
+                                            <span class="dot" onclick="goToCertSlide(2)"></span>
+                                            <span class="dot" onclick="goToCertSlide(3)"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="feature-card">
+                                    <h3>政府特約與品質保證</h3>
+                                    <p>城安為雙北地區政府特約輔具廠商，提供優質的輔具產品與專業施工服務<br><br>城安重視每一項細節，產品選擇、施工品質皆有完整制度保障，讓每位客戶都能安心選購、放心使用。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 產品服務 -->
+        <div id="products" class="page">
+            <section class="features">
+                <div class="container">
+                    <h2 class="section-title">城安的專業服務</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <img src="https://raw.githubusercontent.com/Chengann520/my-images/main/images/2.jpg"
+                                alt="台北、新北社福馬桶與浴室無障礙設備安裝" class="feature-image zoomable">
+                            <h3>社福馬桶與浴室設備</h3>
+                            <p>社福馬桶、壁掛沐浴椅、面盆更新、地板止滑等專業浴室設備，打造安全舒適的盥洗環境，降低浴室跌倒風險</p>
+                        </div>
+                        <div class="feature-card">
+                            <img src="https://raw.githubusercontent.com/Chengann520/my-images/main/images/4.jpg"
+                                alt="雙北專業扶手安裝服務-馬桶起身與洗澡防滑" class="feature-image zoomable">
+                            <h3>扶手安裝服務</h3>
+                            <p>走廊扶手、上掀扶手、L型扶手、浴室扶手等各式扶手安裝，提供全方位安全防護。針對馬桶起身、洗澡防滑、走廊行走提供穩固支撐，依據長輩身高與習慣量身安裝。</p>
+                        </div>
+                        <div class="feature-card">
+                            <img src="https://raw.githubusercontent.com/Chengann520/my-images/main/images/6.jpg"
+                                alt="台北新北居家無障礙移動斜坡板" class="feature-image zoomable">
+                            <h3>移動斜坡板</h3>
+                            <p>專業移動斜坡板，輕鬆克服門檻與高低差，讓輪椅族與行動不便者進出更順暢便利</p>
+                        </div>
+                        <div class="feature-card">
+                            <img src="https://raw.githubusercontent.com/Chengann520/my-images/main/images/3.jpg"
+                                alt="門檻與門片改善" class="feature-image zoomable">
+                            <h3>門檻與門片改善</h3>
+                            <p>門檻去除、百頁門、橫拉門安裝，改善居家動線，創造無障礙通行空間</p>
+                        </div>
+                        <div class="feature-card">
+                            <img src="https://raw.githubusercontent.com/Chengann520/my-images/main/images/5.jpg"
+                                alt="專業評估服務" class="feature-image zoomable">
+                            <h3>專業評估服務</h3>
+                            <p>由專業評估師進行評估，提供最適合的輔具配置與環境改善建議</p>
+                        </div>
+                        <div class="feature-card">
+                            <img src="https://raw.githubusercontent.com/Chengann520/my-images/main/images/1.jpg"
+                                alt="售後服務保障" class="feature-image zoomable">
+                            <h3>售後服務保障</h3>
+                            <p>提供專業安裝、使用教學服務，讓您使用無後顧之憂</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="photo-carousel" id="carousel">
+                                <div class="photo-container" id="photoContainer">
+                                    <div class="photo-slide">
+                                        <img src="https://raw.githubusercontent.com/Chengann520/my-images/main/images/5.jpg"
+                                            alt="Slide 1" class="zoomable">
+                                    </div>
+                                    <div class="photo-slide">
+                                        <img src="https://raw.githubusercontent.com/Chengann520/my-images/main/images/7.jpg"
+                                            alt="Slide 2" class="zoomable">
+                                    </div>
+                                    <div class="photo-slide">
+                                        <img src="https://raw.githubusercontent.com/Chengann520/my-images/main/images/8.jpg"
+                                            alt="Slide 3" class="zoomable">
+                                    </div>
+                                </div>
+
+                                <button class="nav-button prev" onclick="changeSlide(-1)">‹</button>
+                                <button class="nav-button next" onclick="changeSlide(1)">›</button>
+
+                                <div class="dots-container">
+                                    <span class="dot active" onclick="goToSlide(0)"></span>
+                                    <span class="dot" onclick="goToSlide(1)"></span>
+                                    <span class="dot" onclick="goToSlide(2)"></span>
+                                </div>
+                            </div>
+                            <h3>進口偵測設備</h3>
+                            <p>德國進口壁體偵測機，找出電線與水管位置，降低施工風險</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 分店資訊 -->
+        <div id="branches" class="page">
+            <section class="branches-section">
+                <div class="container">
+                    <h2 class="section-title">分店資訊</h2>
+                    <div id="branches-container" class="branches-grid">
+                        <!-- Branches will be loaded dynamically via JavaScript -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 客戶評價 -->
+        <div id="credit" class="page">
+            <section class="credit-section">
+                <div class="container">
+                    <h2 class="section-title">客戶對城安的評價</h2>
+
+                    <!-- 統計數據 -->
+                    <div class="features-grid mb-3">
+                        <div class="feature-card">
+                            <div class="review-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">160+</span>
+                                    <div class="stat-label">服務案例</div>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">100%</span>
+                                    <div class="stat-label">滿意度</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Facebook 評價區塊 -->
+                    <div class="facebook-reviews-wrapper">
+                        <!-- 獨立的標題區塊 -->
+                        <div class="facebook-header facebook-header-style">
+                            <h3 class="facebook-title">Facebook 粉絲專頁</h3>
+                            <p class="facebook-subtitle">追蹤我們的最新動態與客戶評價</p>
+                        </div>
+
+                        <!-- 內容區塊 -->
+                        <div class="facebook-content facebook-content-style">
+                            <div class="flex-center">
+                                <iframe
+                                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61559277592315&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                                    width="500" height="600" class="facebook-iframe" scrolling="no" frameborder="0"
+                                    allowfullscreen="true"
+                                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                                </iframe>
+                            </div>
+                            <div class="text-center mt-1">
+                                <a href="https://www.facebook.com/profile.php?id=61559277592315&sk=reviews&locale=zh_TW"
+                                    target="_blank" class="contact-btn facebook-btn-custom">
+                                    前往 Facebook 查看評價
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- 客戶見證 -->
+            <section class="testimonial-section">
+                <div class="container">
+                    <h2 class="section-title">客戶見證</h2>
+                    <div class="testimonials-grid">
+                        <div class="testimonial">
+                            <div class="stars">★★★★★</div>
+                            <p class="testimonial-text">"城安的專業評估師非常細心，為我們家長輩量身規劃了完整的居家安全改善方案。施工品質優良，服務態度也很親切。"</p>
+                            <div class="testimonial-author">— 陳女士</div>
+                        </div>
+
+                        <div class="testimonial">
+                            <div class="stars">★★★★★</div>
+                            <p class="testimonial-text">"從諮詢到完工都非常專業，輔具選擇建議很實用，讓爸媽的生活品質大幅提升。真的很推薦城安的服務！"</p>
+                            <div class="testimonial-author">— 李先生</div>
+                        </div>
+
+                        <div class="testimonial">
+                            <div class="stars">★★★★★</div>
+                            <p class="testimonial-text">"價格合理，服務完整，重點是真的很用心在了解我們的需求。現在家裡變得更安全舒適了。"</p>
+                            <div class="testimonial-author">— 王小姐</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section id="contact" class="contact-section-global">
+            <div class="container">
+                <h2 class="section-title text-white">聯絡我們</h2>
+                <p class="text-white text-center mb-2 text-lg">
+                    準備為家人打造更安全舒適的生活環境嗎？城安的專業團隊隨時為您服務</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3><a href="tel:0906828969" class="text-white no-decoration">📞
+                                聯絡電話</a></h3>
+                        <p><a href="tel:0906828969" class="text-white no-decoration">0906-828-969</a><br>週一至週五
+                            09:00-18:00</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3><a href="https://line.me/ti/p/SzjNVVDE9y" target="_blank"
+                                class="text-white no-decoration">💻
+                                線上諮詢</a></h3>
+                        <p><a href="https://line.me/ti/p/SzjNVVDE9y" target="_blank"
+                                class="text-white no-decoration">專業評估師為您解答<br>輔具規劃評估服務</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 城安無障礙規劃實業社. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
