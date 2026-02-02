@@ -333,11 +333,13 @@ class Carousel {
 let detectorCarousel;
 let certCarousel;
 let handrailCarousel;
+let rampCarousel;
 
 function initAllCarousels() {
     detectorCarousel = new Carousel('carousel', 3);
     certCarousel = new Carousel('certCarousel', 4);
     handrailCarousel = new Carousel('handrailCarousel', 2);
+    rampCarousel = new Carousel('rampCarousel', 2);
 }
 
 // 為了相容 HTML 上的 onclick 事件，定義全域函數
@@ -363,6 +365,14 @@ function changeHandrailSlide(direction) {
 
 function goToHandrailSlide(slideIndex) {
     if (handrailCarousel) handrailCarousel.goToSlide(slideIndex);
+}
+
+function changeRampSlide(direction) {
+    if (rampCarousel) rampCarousel.changeSlide(direction);
+}
+
+function goToRampSlide(slideIndex) {
+    if (rampCarousel) rampCarousel.goToSlide(slideIndex);
 }
 
 // 燈箱放大功能
