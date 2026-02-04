@@ -334,12 +334,16 @@ let detectorCarousel;
 let certCarousel;
 let handrailCarousel;
 let rampCarousel;
+let thresholdCarousel;
+let evalCarousel;
 
 function initAllCarousels() {
     detectorCarousel = new Carousel('carousel', 3);
     certCarousel = new Carousel('certCarousel', 4);
     handrailCarousel = new Carousel('handrailCarousel', 2);
     rampCarousel = new Carousel('rampCarousel', 2);
+    thresholdCarousel = new Carousel('thresholdCarousel', 2);
+    evalCarousel = new Carousel('evalCarousel', 2);
 }
 
 // 為了相容 HTML 上的 onclick 事件，定義全域函數
@@ -373,6 +377,22 @@ function changeRampSlide(direction) {
 
 function goToRampSlide(slideIndex) {
     if (rampCarousel) rampCarousel.goToSlide(slideIndex);
+}
+
+function changeThresholdSlide(direction) {
+    if (thresholdCarousel) thresholdCarousel.changeSlide(direction);
+}
+
+function goToThresholdSlide(slideIndex) {
+    if (thresholdCarousel) thresholdCarousel.goToSlide(slideIndex);
+}
+
+function changeEvalSlide(direction) {
+    if (evalCarousel) evalCarousel.changeSlide(direction);
+}
+
+function goToEvalSlide(slideIndex) {
+    if (evalCarousel) evalCarousel.goToSlide(slideIndex);
 }
 
 // 燈箱放大功能
