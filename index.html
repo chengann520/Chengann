@@ -295,14 +295,46 @@
                             <p>專業移動斜坡板，輕鬆克服門檻與高低差，讓輪椅族與行動不便者進出更順暢便利</p>
                         </div>
                         <div class="feature-card">
-                            <img src="https://raw.githubusercontent.com/Chengann520/my-images/main/images/3.jpg"
-                                alt="台北、新北無障礙門檻與門片改善" class="feature-image zoomable" loading="lazy" decoding="async">
+                            <div class="photo-carousel" id="thresholdCarousel">
+                                <div class="photo-container" id="thresholdPhotoContainer">
+                                    <div class="photo-slide">
+                                        <img src="https://raw.githubusercontent.com/Chengann520/my-images/main/images/3.jpg"
+                                            alt="台北、新北無障礙門檻與門片改善" class="zoomable" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="photo-slide">
+                                        <img src="https://raw.githubusercontent.com/Chengann520/my-images/main/images/18.jpg"
+                                            alt="台北、新北無障礙門檻與門片改善-實例分享" class="zoomable" loading="lazy" decoding="async">
+                                    </div>
+                                </div>
+                                <button class="nav-button prev" onclick="changeThresholdSlide(-1)">‹</button>
+                                <button class="nav-button next" onclick="changeThresholdSlide(1)">›</button>
+                                <div class="dots-container" id="thresholdDots">
+                                    <span class="dot active" onclick="goToThresholdSlide(0)"></span>
+                                    <span class="dot" onclick="goToThresholdSlide(1)"></span>
+                                </div>
+                            </div>
                             <h3>門檻與門片改善</h3>
                             <p>門檻去除、百頁門、橫拉門安裝，改善居家動線，創造無障礙通行空間</p>
                         </div>
                         <div class="feature-card">
-                            <img src="https://raw.githubusercontent.com/Chengann520/my-images/main/images/5.jpg"
-                                alt="台北、新北無障礙專業評估服務" class="feature-image zoomable" loading="lazy" decoding="async">
+                            <div class="photo-carousel" id="evalCarousel">
+                                <div class="photo-container" id="evalPhotoContainer">
+                                    <div class="photo-slide">
+                                        <img src="https://raw.githubusercontent.com/Chengann520/my-images/main/images/5.jpg"
+                                            alt="台北、新北無障礙專業評估服務" class="zoomable" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="photo-slide">
+                                        <img src="https://raw.githubusercontent.com/Chengann520/my-images/main/images/17.jpg"
+                                            alt="台北、新北無障礙專業評估服務-實例分享" class="zoomable" loading="lazy" decoding="async">
+                                    </div>
+                                </div>
+                                <button class="nav-button prev" onclick="changeEvalSlide(-1)">‹</button>
+                                <button class="nav-button next" onclick="changeEvalSlide(1)">›</button>
+                                <div class="dots-container" id="evalDots">
+                                    <span class="dot active" onclick="goToEvalSlide(0)"></span>
+                                    <span class="dot" onclick="goToEvalSlide(1)"></span>
+                                </div>
+                            </div>
                             <h3>專業評估服務</h3>
                             <p>由專業評估師進行評估，提供最適合的輔具配置與環境改善建議</p>
                         </div>
