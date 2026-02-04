@@ -1352,8 +1352,8 @@ html {
 /* 響應式調整 */
 @media (max-width: 1024px) {
     header .container {
-        padding: 0 0 0 20px;
-        /* 右側 padding 為 0，讓按鈕完全貼邊 */
+        padding: 0 20px;
+        /* 恢復右側 padding */
     }
 
     .container {
@@ -1385,8 +1385,10 @@ html {
     /* 移動端菜單樣式 - 側邊欄模式 */
     .menu-toggle {
         display: block;
-        margin-right: 0;
-        /* 移除右側邊距 */
+        margin-left: auto;
+        /* Push to the far right */
+        margin-right: 15px;
+        /* 添加右邊距避免貼邊 */
         z-index: 1002;
         /* 確保切換按鈕在側邊欄之上 */
     }
